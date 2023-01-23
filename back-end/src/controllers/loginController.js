@@ -1,6 +1,7 @@
 const service = require('../services/loginService');
 const crypto = require('crypto')
 
+
 const insertLogin = async (req, res) => {
   const { email, password } = req.body
   const cryptedPassword = crypto.createHash('md5').update(password).digest("hex")
