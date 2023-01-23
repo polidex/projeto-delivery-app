@@ -1,14 +1,14 @@
 .form {
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   min-height: 90vh;
 }
 
 h4 {
-  margin-left: 6px;
   margin-bottom: -1px;
+  margin-left: 6px;
 }
 
 .form-buttons {
