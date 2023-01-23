@@ -22,6 +22,10 @@ button {
   width: 110%;
 }
 
-p {
+.showError {
+  display: inline;
+}
+
+.notError {
   display: none;
 }

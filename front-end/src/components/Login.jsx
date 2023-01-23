@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { loginUser } from '../Api/api';
 import '../style/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [isDisabledBtn, setIsDisabledBtn] = useState(true);
+  const [isDisabledError, setIsDisabledError] = useState('notError');
 
   const formValidation = () => {
     const pwdMin = 6;
@@ -12,9 +14,9 @@ function Login() {
     const emailValidation = email.match(emailFormat);
     const pwdValidation = password.length >= pwdMin;
     if (emailValidation && pwdValidation) {
-      setIsDisabled(false);
+      setIsDisabledBtn(false);
     } else {
-      setIsDisabled(true);
+      setIsDisabledBtn(true);
     }
   };
 
@@ -28,6 +30,21 @@ function Login() {
     const { value } = target;
     setPassword(value);
     formValidation();
+  };
+
+  const errorApi = async () => {
+    setIsDisabledError('showError');
+  };
+
+  const submitApi = async () => {
+    const response = await loginUser(email, password);
+    errorApi();
+
+    try {
+      localStorage.setItem('token', response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -54,7 +71,8 @@ function Login() {
           <button
             type="button"
             data-testid="common_login__button-login"
-            disabled={ isDisabled }
+            disabled={ isDisabledBtn }
+            onClick={ submitApi }
           >
             Login
           </button>
@@ -62,7 +80,12 @@ function Login() {
             Cadastrar
           </button>
         </div>
-        <p data-testid="common_login__element-invalid-email">Error Mensage</p>
+        <p
+          data-testid="common_login__element-invalid-email"
+          className={ isDisabledError }
+        >
+          Error Mensage
+        </p>
       </div>
     </main>
   );
