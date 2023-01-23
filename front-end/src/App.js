@@ -1,15 +1,14 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
-import rockGlass from './images/rockGlass.svg';
+import Login from './components/Login';
 
 function App() {
   return (
-    <div className="App">
-      <span className="logo">TRYBE</span>
-      <object className="rocksGlass" type="image/svg+xml" data={ rockGlass }>
-        Iniciando ao projeto
-      </object>
-    </div>
+    <>
+      <Route exact path="/" component={ Login } />
+      <Route exact path="/login" component={ Login } />
+    </>
   );
 }
 
