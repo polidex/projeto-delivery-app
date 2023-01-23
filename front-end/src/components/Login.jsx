@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { loginUser } from '../Api/api';
 import '../style/Login.css';
 
@@ -7,6 +8,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isDisabledBtn, setIsDisabledBtn] = useState(true);
   const [isDisabledError, setIsDisabledError] = useState('notError');
+  const history = useHistory();
 
   const formValidation = () => {
     const pwdMin = 6;
@@ -37,13 +39,13 @@ function Login() {
   };
 
   const submitApi = async () => {
-    const response = await loginUser(email, password);
-    errorApi();
-
+    const goodRequest = 200;
     try {
+      const response = await loginUser(email, password);
       localStorage.setItem('token', response);
-    } catch (error) {
-      console.log(error);
+      history.push('/teste');
+    } catch {
+      errorApi();
     }
   };
 
@@ -84,7 +86,7 @@ function Login() {
           data-testid="common_login__element-invalid-email"
           className={ isDisabledError }
         >
-          Error Mensage
+          User not found
         </p>
       </div>
     </main>
