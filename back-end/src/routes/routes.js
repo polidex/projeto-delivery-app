@@ -1,8 +1,8 @@
 const express = require('express');
 
-//rotas de validação
+// rotas de validação
 
-//rotas do controller
+// rotas do controller
 const loginController = require('../controllers/loginController');
 
 const route = express.Router();
