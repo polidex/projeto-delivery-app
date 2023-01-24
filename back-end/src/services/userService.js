@@ -13,12 +13,12 @@ const insertLogin = async (email, password) => {
 };
 
 const UserExists = async (name, email) => {
-  const userEmail = await User.findOne({where: {email}})
-  const userName = await User.findOne({where: {name}})
-  if(userEmail || userName) {
-    return true
-  } return false
-}
+  const userEmail = await User.findOne({ where: { email } });
+  const userName = await User.findOne({ where: { name } });
+  if (userEmail || userName) {
+    return true;
+  } return false;
+};
 
 const userRegister = async (user) => {
   try {
