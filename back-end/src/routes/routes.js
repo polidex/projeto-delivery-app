@@ -3,10 +3,11 @@ const express = require('express');
 // rotas de validação
 
 // rotas do controller
-const loginController = require('../controllers/loginController');
+const userController = require('../controllers/userController');
 
 const route = express.Router();
 
-route.post('/login', loginController.insertLogin);
+route.post('/login', userController.insertLogin);
+route.post('/register', userController.userRegister);
 
 module.exports = route;
