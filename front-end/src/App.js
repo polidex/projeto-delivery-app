@@ -3,10 +3,7 @@ import { Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
-<<<<<<< Updated upstream
-=======
 import Products from './pages/Products';
->>>>>>> Stashed changes
 
 function App() {
   const history = useHistory();
