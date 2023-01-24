@@ -123,7 +123,7 @@ function Register() {
         </button>
       </div>
       <p
-        data-testid="common_login__element-invalid-email"
+        data-testid="common_register__element-invalid_register"
         className={ isDisabledError }
       >
         Invalid Data
