@@ -12,7 +12,7 @@ const insertLogin = async (req, res) => {
 const userRegister = async (req, res) => {
   const userData = req.body;
   userData.password = crypto.createHash('md5').update(userData.password).digest('hex');
-  const userExists = await service.UserExists(userData.name, userData.email)
+  const userExists = await service.UserExists(userData.name, userData.email);
   if (userExists) {
     console.log(userExists);
     return res.sendStatus(409);
