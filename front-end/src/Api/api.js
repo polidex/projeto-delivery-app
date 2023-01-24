@@ -7,7 +7,7 @@ export const loginUser = async (email, password) => {
   return instance.post('login', { email, password });
 };
 
-export const registerUser = async (nome, email, password) => {
+export const registerUser = async (name, email, password) => {
   console.log(email);
-  return instance.post('register', { nome, email, password });
+  return instance.post('register', { name, email, password });
 };
