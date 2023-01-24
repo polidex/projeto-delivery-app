@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   const history = useHistory();
