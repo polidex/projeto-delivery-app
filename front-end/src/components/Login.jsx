@@ -56,7 +56,7 @@ function Login() {
 
   return (
     <main>
-      <div className="form">
+      <div className="form-login">
         <h1>Login</h1>
         <div className="form-inputs">
           <h4>Email:</h4>
@@ -87,7 +87,11 @@ function Login() {
           >
             Login
           </button>
-          <button type="button" data-testid="common_login__button-register">
+          <button
+            type="button"
+            data-testid="common_login__button-register"
+            onClick={ () => history.push('/register') }
+          >
             Cadastrar
           </button>
         </div>
