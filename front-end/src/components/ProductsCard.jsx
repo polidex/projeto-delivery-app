@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import '../style/components/ProductsCard.css';
 import { useEffect } from 'react';
 
@@ -86,5 +87,26 @@ function ProductsCard(props) {
 
   );
 }
+
+ProductsCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  products: PropTypes.shape({
+    1: PropTypes.number,
+    2: PropTypes.number,
+    3: PropTypes.number,
+    4: PropTypes.number,
+    5: PropTypes.number,
+    6: PropTypes.number,
+    7: PropTypes.number,
+    8: PropTypes.number,
+    9: PropTypes.number,
+    10: PropTypes.number,
+    11: PropTypes.number,
+  }).isRequired,
+  setProducts: PropTypes.func.isRequired,
+  urlImage: PropTypes.string.isRequired,
+};
 
 export default ProductsCard;

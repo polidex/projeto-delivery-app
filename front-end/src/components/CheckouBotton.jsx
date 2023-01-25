@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
 function CheckoutButton(props) {
-  const { productsQty, productsList } = props;
+  const { productsQty, productsList, cartEmpty } = props;
   const [value, setValue] = useState(0.00);
 
   useEffect(() => {
@@ -13,10 +13,14 @@ function CheckoutButton(props) {
   }, [productsQty, productsList]);
   return (
     <div>
-      <button type="button" data-testid="customer_products__button-cart">
+      <button
+        disabled={ cartEmpty }
+        type="button"
+        data-testid="customer_products__button-cart"
+      >
         <h5 data-testid="customer_products__checkout-bottom-value">
           {
-            `Ver Carrinho: R$${value}`
+            String(value).replace('.', ',')
           }
 
         </h5>
@@ -26,6 +30,7 @@ function CheckoutButton(props) {
 }
 
 CheckoutButton.propTypes = {
+  cartEmpty: PropTypes.bool.isRequired,
   productsQty: PropTypes.shape({
     1: PropTypes.number,
     2: PropTypes.number,

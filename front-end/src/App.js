@@ -4,6 +4,7 @@ import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Products from './pages/Products';
+import Checkout from './pages/Checkout';
 
 function App() {
   const history = useHistory();
