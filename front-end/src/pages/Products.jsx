@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react';
 import ProductsCard from '../components/ProductsCard';
 import { getProducts } from '../Api/api';
 import Menu from '../components/Menu';
+import CheckoutButton from '../components/CheckouBotton';
 
 function Products() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => console.log(products), [products]);
+  const [productsList, setProductsList] = useState([]);
+  const [productsQty, setProductsQty] = useState({});
   useEffect(() => {
     async function fetchProducts() {
-      setProducts(await getProducts());
+      setProductsList(await getProducts());
     }
     fetchProducts();
   }, []);
@@ -18,11 +19,12 @@ function Products() {
       <Menu />
       <h1>/Products</h1>
 
-      {products.map((product) => {
-        console.log(product);
+      {productsList.map((product) => {
         const { name, id, price, urlImage } = product;
         return (
           <ProductsCard
+            products={ productsQty }
+            setProducts={ setProductsQty }
             key={ name }
             id={ id }
             name={ name }
@@ -31,6 +33,7 @@ function Products() {
           />
         );
       })}
+      <CheckoutButton productsList={ productsList } productsQty={ productsQty } />
     </main>
   );
 }

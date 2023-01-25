@@ -1,17 +1,17 @@
 import '../style/components/ProductsCard.css';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 function ProductsCard(props) {
-  const [products, setProducts] = useState({});
-  const { id, price, name, urlImage } = props;
+  const { id, price, name, urlImage, products, setProducts } = props;
+
+  useEffect(() => {
+    setProducts((prevState) => ({
+      ...prevState,
+      [id]: 0,
+    }));
+  }, [id, setProducts]);
 
   const productsHandle = (target) => {
-    if (!products[target.name]) {
-      setProducts((prevState) => ({
-        ...prevState,
-        [target.name]: 0,
-      }));
-    }
     if (target.id === 'btn-add') {
       setProducts((prevState) => ({
         ...prevState,
