@@ -1,10 +1,10 @@
 import '../style/components/ProductsCard.css';
 
 function ProductsCard() {
+  // const productsHandle = (target) => {
 
-  const productsHandle = (target) => {
-    
-  }
+  // };
+
   return (
     <div id="card">
       <p
@@ -22,7 +22,8 @@ function ProductsCard() {
       <div>
         <p
           id="card-title"
-          data-testid="customer_products__element-card-title-<id>">
+          data-testid="customer_products__element-card-title-<id>"
+        >
           CERVEJA HEINEKEN 269ML
         </p>
         <button
