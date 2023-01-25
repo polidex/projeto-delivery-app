@@ -1,3 +1,47 @@
-* {
-  font-size: 12px;
+.menu {
+  background-color: #036B52;
+  display: flex;
+  /* justify-content: space-between; */
+  min-height: 10vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-produtos {
+  background-color: #2FC18C;
+  min-width: 15%;
+  text-align: center;
+}
+
+.btn-produtos a {
+  color: black;
+}
+
+.btn-orders {
+  min-width: 55%;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.btn-orders a {
+  color: white;
+}
+
+.btn-logout {
+  background-color: #056CF9;
+  min-width: 15%;
+  text-align: center;
+}
+
+.btn-logout a {
+  color: white;
+}
+
+.username {
+  background-color: #421981;
+  color: white;
+  min-width: 15%;
+  text-align: center; 
 }
