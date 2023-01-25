@@ -13,6 +13,7 @@ function Login() {
   const history = useHistory();
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { className, value } = e.target;
     setLoginInfos((prevState) => ({
       ...prevState,
@@ -47,6 +48,7 @@ function Login() {
     // const goodRequest = 200;
     try {
       const response = await loginUser(loginInfos.email, loginInfos.password);
+      console.log(response);
       localStorage.setItem('token', response);
       history.push('/customer/products');
     } catch {
