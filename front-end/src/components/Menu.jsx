@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import '../style/Menu.css';
 
 function Menu() {
+  // const getDataInStorage = () => {
+  //   const user = JSON.parse(localStorage.getItem('userData'));
+  //   return user;
+  // };
+
   return (
     <div className="menu">
       <div className="btn-produtos">
@@ -26,7 +31,8 @@ function Menu() {
         <h4
           data-testid="customer_products__element-navbar-user-full-name"
         >
-          Nome Bonitão do Usuario
+          {/* { getDataInStorage().name } */}
+          Nome
         </h4>
       </div>
 
@@ -34,6 +40,7 @@ function Menu() {
         <Link
           to="/"
           data-testid="customer_products__element-navbar-link-logout"
+          // onClick={ () => localStorage.removeItem('userData') }
         >
           <h4>Sair</h4>
         </Link>
