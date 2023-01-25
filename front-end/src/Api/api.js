@@ -6,4 +6,4 @@ export const loginUser = async (email, password) => instance.post('login', {
 export const registerUser = async (name, email, password) => instance.post('register', {
   name, email, password });
 
-export const getProducts = async () => instance.get('products');
+export const getProducts = async () => instance.get('products').then((data) => data.data);

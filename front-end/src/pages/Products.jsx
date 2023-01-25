@@ -8,14 +8,27 @@ function Products() {
   useEffect(() => console.log(products), [products]);
   useEffect(() => {
     async function fetchProducts() {
-      return getProducts();
+      setProducts(await getProducts());
     }
-    setProducts(fetchProducts());
+    fetchProducts();
   }, []);
   return (
     <main>
       <h1>/Products</h1>
-      {ProductsCard(1)}
+
+      {products.map((product) => {
+        console.log(product);
+        const { name, id, price, urlImage } = product;
+        return (
+          <ProductsCard
+            key={ name }
+            id={ id }
+            name={ name }
+            price={ price }
+            urlImage={ urlImage }
+          />
+        );
+      })}
     </main>
   );
 }
