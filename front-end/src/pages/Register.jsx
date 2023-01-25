@@ -73,7 +73,7 @@ function Register() {
         registerInfos.email,
         registerInfos.password,
       );
-      localStorage.setItem('userData', JSON.stringify(data));
+      localStorage.setItem('user', JSON.stringify(data));
       history.push('/customer/products');
     } catch {
       errorApi();

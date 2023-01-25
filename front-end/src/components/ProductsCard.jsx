@@ -40,7 +40,7 @@ function ProductsCard(props) {
         id="price"
         data-testid={ `customer_products__element-card-price-${id}` }
       >
-        {`${price}`}
+        {`${price.replace('.', ',')}`}
       </p>
       <img
         id="image"

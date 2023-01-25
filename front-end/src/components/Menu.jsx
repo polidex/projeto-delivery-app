@@ -1,15 +1,13 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/Menu.css';
 
 const vasco = () => {
-  localStorage.removeItem('userData');
-  console.log('clicked');
+  localStorage.removeItem('user');
 };
 
 function Menu() {
   const getDataInStorage = () => {
-    const user = JSON.parse(localStorage.getItem('userData'));
+    const user = JSON.parse(localStorage.getItem('user'));
     return user;
   };
 
