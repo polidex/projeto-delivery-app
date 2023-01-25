@@ -68,12 +68,12 @@ function Register() {
   const submitApi = async () => {
     // const goodRequest = 200;
     try {
-      const response = await registerUser(
+      const { data } = await registerUser(
         registerInfos.nome,
         registerInfos.email,
         registerInfos.password,
       );
-      localStorage.setItem('token', response);
+      localStorage.setItem('user', JSON.stringify(data));
       history.push('/customer/products');
     } catch {
       errorApi();

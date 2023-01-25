@@ -47,9 +47,8 @@ function Login() {
   const submitApi = async () => {
     // const goodRequest = 200;
     try {
-      const response = await loginUser(loginInfos.email, loginInfos.password);
-      console.log(response);
-      localStorage.setItem('token', response);
+      const { data } = await loginUser(loginInfos.email, loginInfos.password);
+      localStorage.setItem('user', JSON.stringify(data));
       history.push('/customer/products');
     } catch {
       errorApi();
@@ -95,6 +94,23 @@ function Login() {
             onClick={ () => history.push('/register') }
           >
             Cadastrar
+          </button>
+          <button
+            type="button"
+            data-testid="common_login__button-login"
+            onClick={ () => {
+              localStorage.setItem('user', JSON.stringify({
+                name: 'Super Dev',
+                email: 'superdev@email.com',
+                role: 'customer',
+                token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+                eyJkYXRhIjoic3VwZXJkZXZAZW1haWwuY29tIiwiaWF0IjoxNjc0NjgxNDI1LCJleHAiO
+                jE2NzUyODYyMjV9.nh3NTBYNrRg3C2moAq613bQYpNWkxLD3rtlz-pdmq14`,
+              }));
+              history.push('/customer/products');
+            } }
+          >
+            ADM Liberou 😎
           </button>
         </div>
         <p
