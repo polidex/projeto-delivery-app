@@ -3,11 +3,36 @@ import { useState } from 'react';
 
 function ProductsCard(id, price, name, url) {
   const [products, setProducts] = useState({});
-  const productsHandle = (target) => {
-    console.log(target);
-    setProducts((prevState) => ({
 
-    }));
+  const productsHandle = (target) => {
+    if (!products[target.name]) {
+      setProducts((prevState) => ({
+        ...prevState,
+        [target.name]: 0,
+      }));
+    }
+    if (target.id === 'btn-add') {
+      setProducts((prevState) => ({
+        ...prevState,
+        [target.name]: Number(prevState[target.name]) + 1,
+      }));
+    }
+    if (target.id === 'btn-rm' && products[target.name] > 0) {
+      setProducts((prevState) => ({
+        ...prevState,
+        [target.name]: Number(prevState[target.name]) - 1,
+      }));
+    }
+  };
+
+  const inputProductsHandle = (target) => {
+    console.log(target);
+    if (target.value >= 0) {
+      setProducts((prevState) => ({
+        ...prevState,
+        [target.name]: Number(target.value),
+      }));
+    }
   };
   return (
     <div id="card">
@@ -32,6 +57,8 @@ function ProductsCard(id, price, name, url) {
         </p>
         <button
           id="btn-rm"
+          onClick={ (event) => productsHandle(event.target) }
+          name={ id }
           type="button"
           data-testid={ `customer_products__button-card-rm-item-${id}` }
         >
@@ -40,11 +67,14 @@ function ProductsCard(id, price, name, url) {
         <input
           id="int-qtt"
           type="number"
+          name={ id }
+          onChange={ (e) => inputProductsHandle(e.target) }
           data-testid={ `customer_products__input-card-quantity-${id}` }
-          value="0"
+          value={ products[id] }
         />
         <button
           onClick={ (event) => productsHandle(event.target) }
+          name={ id }
           id="btn-add"
           type="button"
           data-testid={ `customer_products__button-card-add-item-${id}` }
