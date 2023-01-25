@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 // import { useHistory } from 'react-router-dom';
 // import { loginUser } from '../Api/api';
+import Menu from '../components/Menu';
 import '../style/Products.css';
 import ProductsCard from '../components/ProductsCard';
 

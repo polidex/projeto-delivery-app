@@ -23,7 +23,7 @@ function ProductsCard(id, price, name, url) {
         data-testid={ `customer_products__img-card-bg-image-${id}` }
         src="https://swiftbr.vteximg.com.br/arquivos/ids/184370-1500-1000/620031_HEINEKEN-269ML.png?v=637957499365500000"
       />
-      <div>
+      <div id="card-menu">
         <p
           id="card-title"
           data-testid={ `customer_products__element-card-title-${id}` }
