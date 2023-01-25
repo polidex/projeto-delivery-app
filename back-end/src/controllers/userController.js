@@ -20,7 +20,7 @@ const userRegister = async (req, res) => {
   const response = await service.userRegister(userData);
   if (response && response.type) {
     return res.status(500).json({ message: 'internal error' });
-  } return res.sendStatus(201);
+  } return res.status(201).json(response);
 };
 
 module.exports = { insertLogin, userRegister };
