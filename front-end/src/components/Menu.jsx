@@ -1,11 +1,17 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/Menu.css';
 
+const vasco = () => {
+  localStorage.removeItem('userData');
+  console.log('clicked');
+};
+
 function Menu() {
-  // const getDataInStorage = () => {
-  //   const user = JSON.parse(localStorage.getItem('userData'));
-  //   return user;
-  // };
+  const getDataInStorage = () => {
+    const user = JSON.parse(localStorage.getItem('userData'));
+    return user;
+  };
 
   return (
     <div className="menu">
@@ -31,8 +37,7 @@ function Menu() {
         <h4
           data-testid="customer_products__element-navbar-user-full-name"
         >
-          {/* { getDataInStorage().name } */}
-          Nome
+          { getDataInStorage().name }
         </h4>
       </div>
 
@@ -40,7 +45,7 @@ function Menu() {
         <Link
           to="/"
           data-testid="customer_products__element-navbar-link-logout"
-          // onClick={ () => localStorage.removeItem('userData') }
+          onClick={ vasco }
         >
           <h4>Sair</h4>
         </Link>

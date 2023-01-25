@@ -2,6 +2,7 @@ import '../style/Products.css';
 import { useEffect, useState } from 'react';
 import ProductsCard from '../components/ProductsCard';
 import { getProducts } from '../Api/api';
+import Menu from '../components/Menu';
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,7 @@ function Products() {
   }, []);
   return (
     <main>
+      <Menu />
       <h1>/Products</h1>
 
       {products.map((product) => {
