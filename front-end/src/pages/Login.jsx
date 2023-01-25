@@ -47,9 +47,8 @@ function Login() {
   const submitApi = async () => {
     // const goodRequest = 200;
     try {
-      const response = await loginUser(loginInfos.email, loginInfos.password);
-      console.log(response);
-      localStorage.setItem('token', response);
+      const { data } = await loginUser(loginInfos.email, loginInfos.password);
+      localStorage.setItem('userData', JSON.stringify(data));
       history.push('/customer/products');
     } catch {
       errorApi();
