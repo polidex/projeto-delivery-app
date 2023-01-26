@@ -1,18 +1,9 @@
-<<<<<<< Updated upstream
-/* #card {
-  width: 378px;
-  height: 486px;
-  background-color: EAF1EF;
-  stroke: solid 1px B1C2BE;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5);
-=======
 #card {
   background-color: eaf1ef;
   height: 486px;
   width: 378px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5); 
   stroke: solid 1px b1c2be;
->>>>>>> Stashed changes
   box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.5);
 }
 
@@ -54,9 +45,5 @@
 
 #btn-add {
   height: 24px;
-<<<<<<< Updated upstream
-} */
-=======
   width: 24px;
 }
->>>>>>> Stashed changes
