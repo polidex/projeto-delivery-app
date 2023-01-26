@@ -1,6 +1,11 @@
+import AddressCard from '../components/AddressCard';
+
 function Checkout() {
   return (
-    <p>checkout page</p>
+    <div>
+      <p>checkout page</p>
+      <AddressCard />
+    </div>
   );
 }
 
