@@ -3,9 +3,9 @@ const { generateToken } = require('../utils/generateToken');
 
 const insertLogin = async (email, password) => {
   const user = await User.findOne({ where: { email, password } });
-  const data = user.dataValues;
-
+  
   if (user) {
+    const data = user.dataValues;
     const token = generateToken(email);
     return { status: 200, 
       message: { name: data.name, email: data.email, role: data.role, token } };  
