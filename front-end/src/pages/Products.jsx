@@ -23,6 +23,16 @@ function Products() {
       for (let index = 1; index <= productsList.length; index += 1) {
         qtyArray.push(productsQty[index]);
         productsList[index - 1].qty = productsQty[index];
+
+        const vasco = [];
+
+        for (let indexB = 0; indexB <= productsList.length; indexB += 1) {
+          if (productsQty[indexB + 1] > 0) {
+            vasco.push(productsList[indexB]);
+            localStorage.setItem('cart', JSON.stringify(vasco));
+          }
+        }
+
         if (qtyArray.some((qty) => qty > 0)) {
           setCartEmpty(false);
         } else {

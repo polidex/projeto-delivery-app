@@ -10,17 +10,6 @@ function CheckoutButton(props) {
       .reduce((acc, current) => Number(acc + (productsQty[current
         .id]) * current.price), [0]);
     setValue(Number(totalValue).toFixed(2));
-
-    const vasco = [];
-
-    for (let index = 0; index <= productsList.length; index += 1) {
-      if (productsQty[index + 1] > 0) {
-        console.log(productsList[index]);
-        vasco.push(productsList[index]);
-        console.log(vasco);
-      }
-    }
-    localStorage.setItem('cartteste', JSON.stringify(vasco));
   }, [productsQty, productsList]);
 
   return (
