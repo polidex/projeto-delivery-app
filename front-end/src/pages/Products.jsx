@@ -22,6 +22,7 @@ function Products() {
       const qtyArray = [];
       for (let index = 1; index <= productsList.length; index += 1) {
         qtyArray.push(productsQty[index]);
+        productsList[index - 1].qty = productsQty[index];
         if (qtyArray.some((qty) => qty > 0)) {
           setCartEmpty(false);
         } else {

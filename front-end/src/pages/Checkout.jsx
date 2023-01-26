@@ -1,6 +1,12 @@
+import DetailsOrder from '../components/DetailsOrder';
+import Menu from '../components/Menu';
+
 function Checkout() {
   return (
-    <p>checkout page</p>
+    <main>
+      <Menu />
+      <DetailsOrder removeBtn />
+    </main>
   );
 }
 
