@@ -1,6 +1,8 @@
-/* .menu {
-  background-color: #036B52;
+.menu {
+  background-color: #036b52;
   display: flex;
+
+  /* justify-content: space-between; */
   min-height: 10vh;
 }
 
@@ -9,7 +11,7 @@ a {
 }
 
 .btn-produtos {
-  background-color: #2FC18C;
+  background-color: #2fc18c;
   min-width: 15%;
   text-align: center;
 }
@@ -20,8 +22,8 @@ a {
 
 .btn-orders {
   min-width: 55%;
-  text-align: left;
   margin-left: 40px;
+  text-align: left;
 }
 
 .btn-orders a {
@@ -29,7 +31,7 @@ a {
 }
 
 .btn-logout {
-  background-color: #056CF9;
+  background-color: #056cf9;
   min-width: 15%;
   text-align: center;
 }
@@ -43,4 +45,4 @@ a {
   color: white;
   min-width: 15%;
   text-align: center;
-} */
+}
