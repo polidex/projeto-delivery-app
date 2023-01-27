@@ -1,12 +1,14 @@
 import DetailsOrder from '../components/DetailsOrder';
 import Menu from '../components/Menu';
+import AddressCard from '../components/AddressCard';
 
 function Checkout() {
   return (
-    <main>
+    <div>
       <Menu />
       <DetailsOrder removeBtn />
-    </main>
+      <AddressCard />
+    </div>
   );
 }
 

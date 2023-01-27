@@ -14,6 +14,8 @@ const insertLogin = async (email, password) => {
  return { status: 404, message: 'user not found' };
 };
 
+const findUserByEmail = async (email) => User.findOne({ where: { email } });
+
 const UserExists = async (name, email) => {
   const userEmail = await User.findOne({ where: { email } });
   const userName = await User.findOne({ where: { name } });
@@ -42,4 +44,4 @@ const userRegister = async (user) => {
   }
 };
 
-module.exports = { insertLogin, userRegister, UserExists };
+module.exports = { insertLogin, userRegister, UserExists, findUserByEmail };
