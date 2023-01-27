@@ -18,10 +18,28 @@ function AddressCard() {
 
   const submit = async () => {
     try {
-      await submitAddress(addressInfos.seller, addressInfos.street, addressInfos.number);
-      history.push('/customer/orders');
+      const { token } = JSON.parse(localStorage.getItem('user'));
+      const totalPrice = JSON.parse(localStorage.getItem('totalPrice'));
+      const cart = JSON.parse(localStorage.getItem('cart'));
+      const products = cart.map((product) => (
+        { id: product.id,
+          quantity: product.qty,
+        }));
+      const body = {
+        token,
+        totalPrice,
+        deliveryAddress: addressInfos.street,
+        deliveryNumber: addressInfos.number,
+        products,
+      };
+      const APIResponse = await submitAddress(body);
+      const { id } = APIResponse.data;
+      console.log(`id: ${id}`);
+      console.log(APIResponse);
+
+      history.push(`orders/${id}`);
     } catch (error) {
-      alert('error');
+      console.log(error);
     }
   };
 
@@ -30,12 +48,12 @@ function AddressCard() {
       <h2>Detalhes e Endereço de Entrega</h2>
       <div id="form-box">
         <label
-          data-testid="customer_checkout__select-seller"
           htmlFor="seller"
           id="select-seller"
         >
           Vendedora Responsável:
           <select
+            data-testid="customer_checkout__select-seller"
             name="seller"
             id="seller"
             value={ addressInfos.seller }

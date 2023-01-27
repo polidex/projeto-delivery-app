@@ -5,7 +5,7 @@ const createSale = async (req, res) => {
   const { userId } = req;
   try {
     const newSale = await saleService.createSale(saleData, userId);
-    return res.status(200).json(newSale);
+    return res.status(201).json(newSale);
   } catch (error) {
      return res.status(500).json({ message: error.message });
      }

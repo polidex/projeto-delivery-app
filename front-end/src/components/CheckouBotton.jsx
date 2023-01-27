@@ -14,6 +14,14 @@ function CheckoutButton(props) {
 
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <button
         disabled={ cartEmpty }
         type="button"

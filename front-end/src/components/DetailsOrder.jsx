@@ -80,6 +80,7 @@ function DetailsOrder(props) {
     for (let index = 0; index < cart.length; index += 1) {
       totalPrice += cart[index].qty * cart[index].price;
     }
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
     return (
       <h1
         data-testid="customer_checkout__element-order-total-price"

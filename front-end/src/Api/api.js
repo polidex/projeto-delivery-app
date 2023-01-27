@@ -8,5 +8,17 @@ export const registerUser = async (name, email, password) => instance.post('regi
 
 export const getProducts = async () => instance.get('products').then((data) => data.data);
 
-export const submitAddress = async (seller, street, number) => instance
-  .post('orders', { seller, street, number });
+export const submitAddress = async (
+  body,
+) => {
+  const config = {
+    headers: {
+      Authorization: body.token,
+    } };
+  return instance
+    .post('orders', {
+      totalPrice: body.totalPrice,
+      deliveryAddress: body.deliveryAddress,
+      deliveryNumber: body.deliveryNumber,
+      products: body.products }, config);
+};
