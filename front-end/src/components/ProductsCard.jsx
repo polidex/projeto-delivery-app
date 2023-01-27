@@ -57,6 +57,7 @@ function ProductsCard(props) {
           {name}
         </p>
         <button
+          id="btn-rm"
           className="btn-rm"
           onClick={ (event) => productsHandle(event.target) }
           name={ id }
@@ -74,6 +75,7 @@ function ProductsCard(props) {
           value={ products[id] }
         />
         <button
+          id="btn-add"
           onClick={ (event) => productsHandle(event.target) }
           name={ id }
           className="btn-add"
