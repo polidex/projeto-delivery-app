@@ -14,9 +14,11 @@ function DetailsOrder(props) {
 
   const showItems = () => cart.map((product, index) => (
     <tr key={ product.id }>
-      <td className="index">
+      <td
+        className="index"
+        data-testid={ `customer_checkout__element-order-table-item-number-${index}` }
+      >
         <h1
-          datatest-id={ `customer_checkout__element-order-table-item-number-${index}` }
           className="text-center"
         >
           {index + 1}
@@ -24,7 +26,7 @@ function DetailsOrder(props) {
       </td>
       <td>
         <h1
-          datatest-id={ `customer_checkout__element-order-table-name-${index}` }
+          data-testid={ `customer_checkout__element-order-table-name-${index}` }
           className="desc"
         >
           {product.name}
@@ -32,7 +34,7 @@ function DetailsOrder(props) {
       </td>
       <td className="qty">
         <h1
-          datatest-id={ `customer_checkout__element-order-table-quantity-${index}` }
+          data-testid={ `customer_checkout__element-order-table-quantity-${index}` }
           className="text-center"
         >
           {product.qty}
@@ -40,7 +42,7 @@ function DetailsOrder(props) {
       </td>
       <td className="unit">
         <h1
-          datatest-id={ `customer_checkout__element-order-table-unit-price-${index}` }
+          data-testid={ `customer_checkout__element-order-table-unit-price-${index}` }
           className="text-center"
         >
           {product.price.replace('.', ',')}
@@ -48,7 +50,7 @@ function DetailsOrder(props) {
       </td>
       <td className="sub">
         <h1
-          datatest-id={ `customer_checkout__element-order-table-sub-total-${index}` }
+          data-testid={ `customer_checkout__element-order-table-sub-total-${index}` }
           className="text-center"
         >
           {(Number(product.price) * product.qty).toFixed(2).replace('.', ',')}
@@ -60,7 +62,7 @@ function DetailsOrder(props) {
             <td className="btn">
               <button
                 type="button"
-                datatest-id={ `customer_checkout__element-order-table-remove-${index}` }
+                data-testid={ `customer_checkout__element-order-table-remove-${index}` }
                 onClick={ () => removeItem(product.id) }
                 className="btn"
               >
@@ -73,6 +75,20 @@ function DetailsOrder(props) {
     </tr>
   ));
 
+  const showTotalPrice = () => {
+    let totalPrice = 0;
+    for (let index = 0; index < cart.length; index += 1) {
+      totalPrice += cart[index].qty * cart[index].price;
+    }
+    return (
+      <h1
+        data-testid="customer_checkout__element-order-total-price"
+      >
+        {`Total Price: ${totalPrice.toFixed(2).replace('.', ',')}`}
+      </h1>
+    );
+  };
+
   return (
     <div className="details">
       <table>
@@ -83,13 +99,13 @@ function DetailsOrder(props) {
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
-            { removeBtn ? <th>Remover item</th> : null}
+            { removeBtn && <th>Remover item</th> }
           </tr>
           { showItems() }
         </tbody>
       </table>
       <div className="total">
-        <h1>Total: R$ XX,XX</h1>
+        { showTotalPrice() }
       </div>
     </div>
   );
