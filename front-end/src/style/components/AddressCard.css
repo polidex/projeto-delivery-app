@@ -1,4 +1,4 @@
-#checkout-addresscard {
+.checkout-addresscard {
   height: 331px;
   width: 1640px;
 }
@@ -8,17 +8,17 @@ h2 {
   width: 723px;
 }
 
-#form-box {
+.form-box {
   height: 283px;
   width: 1638px;
 }
 
-#select-seller {
+.select-seller {
   height: 112px;
   width: 371px;
 }
 
-#submit-btn {
+.submit-btn {
   height: 50px;
   width: 100px;
 }

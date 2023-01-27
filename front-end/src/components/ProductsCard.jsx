@@ -36,28 +36,28 @@ function ProductsCard(props) {
     }
   };
   return (
-    <div id="card">
+    <div className="card">
       <p
-        id="price"
+        className="price"
         data-testid={ `customer_products__element-card-price-${id}` }
       >
         {`${price.replace('.', ',')}`}
       </p>
       <img
-        id="image"
+        className="image"
         alt={ `imagem do produto ${id}` }
         data-testid={ `customer_products__img-card-bg-image-${id}` }
         src={ urlImage }
       />
-      <div id="card-menu">
+      <div className="card-menu">
         <p
-          id="card-title"
+          className="card-title"
           data-testid={ `customer_products__element-card-title-${id}` }
         >
           {name}
         </p>
         <button
-          id="btn-rm"
+          className="btn-rm"
           onClick={ (event) => productsHandle(event.target) }
           name={ id }
           type="button"
@@ -66,7 +66,7 @@ function ProductsCard(props) {
           -
         </button>
         <input
-          id="int-qtt"
+          className="int-qtt"
           type="number"
           name={ id }
           onChange={ (e) => inputProductsHandle(e.target) }
@@ -76,7 +76,7 @@ function ProductsCard(props) {
         <button
           onClick={ (event) => productsHandle(event.target) }
           name={ id }
-          id="btn-add"
+          className="btn-add"
           type="button"
           data-testid={ `customer_products__button-card-add-item-${id}` }
         >
