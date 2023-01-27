@@ -44,12 +44,12 @@ function AddressCard() {
   };
 
   return (
-    <div id="checkout-addresscard">
+    <div className="checkout-addresscard">
       <h2>Detalhes e Endereço de Entrega</h2>
-      <div id="form-box">
+      <div className="form-box">
         <label
           htmlFor="seller"
-          id="select-seller"
+          className="select-seller"
         >
           Vendedora Responsável:
           <select
@@ -86,7 +86,7 @@ function AddressCard() {
         <button
           type="submit"
           data-testid="customer_checkout__button-submit-order"
-          id="submit-btn"
+          className="submit-btn"
           onClick={ submit }
         >
           FINALIZAR PEDIDO
