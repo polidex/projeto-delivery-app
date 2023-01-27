@@ -7,3 +7,6 @@ export const registerUser = async (name, email, password) => instance.post('regi
   name, email, password });
 
 export const getProducts = async () => instance.get('products').then((data) => data.data);
+
+export const submitAddress = async (seller, street, number) => instance
+  .post('orders', { seller, street, number });

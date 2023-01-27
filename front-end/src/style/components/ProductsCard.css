@@ -1,16 +1,14 @@
 #card {
   background-color: eaf1ef;
   height: 486px;
-  width: 378px;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.5); 
   stroke: solid 1px b1c2be;
-  box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.5);
+  width: 378px;
 }
 
 #price {
   background-color: f2ffc;
-  width: 154;
   height: 63;
+  width: 154;
 }
 
 #image {
