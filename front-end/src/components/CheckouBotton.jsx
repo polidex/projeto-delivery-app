@@ -11,6 +11,7 @@ function CheckoutButton(props) {
         .id]) * current.price), [0]);
     setValue(Number(totalValue).toFixed(2));
   }, [productsQty, productsList]);
+
   return (
     <div>
       <button
