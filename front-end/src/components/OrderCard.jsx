@@ -6,7 +6,7 @@ function OrderCard(props) {
   const { id, totalPrice, saleDate, status } = props;
   return (
     <div>
-      <Link to={ `/customer/orders/${id}` }>
+      <Link to={ `/customer/orders/${id}` } className="order-card">
         <p data-testid={ `customer_orders__element-order-id-${id}` }>{`Pedido ${id}`}</p>
         <p
           data-testid={ `customer_orders__element-order-date-${id}` }

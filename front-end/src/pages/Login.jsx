@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { loginUser } from '../Api/api';
 import '../style/Login.css';
 
 function Login() {
+  const productsLink = '/customer/products';
   const [loginInfos, setLoginInfos] = useState({
     email: '',
     password: '',
@@ -11,6 +12,11 @@ function Login() {
   const [isDisabledBtn, setIsDisabledBtn] = useState(true);
   const [isDisabledError, setIsDisabledError] = useState('notError');
   const history = useHistory();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) history.push(productsLink);
+  });
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -49,7 +55,7 @@ function Login() {
     try {
       const { data } = await loginUser(loginInfos.email, loginInfos.password);
       localStorage.setItem('user', JSON.stringify(data));
-      history.push('/customer/products');
+      history.push(productsLink);
     } catch {
       errorApi();
     }
@@ -107,7 +113,7 @@ function Login() {
                 eyJkYXRhIjoic3VwZXJkZXZAZW1haWwuY29tIiwiaWF0IjoxNjc0NjgxNDI1LCJleHAiO
                 jE2NzUyODYyMjV9.nh3NTBYNrRg3C2moAq613bQYpNWkxLD3rtlz-pdmq14`,
               }));
-              history.push('/customer/products');
+              history.push(productsLink);
             } }
           >
             ADM Liberou 😎
