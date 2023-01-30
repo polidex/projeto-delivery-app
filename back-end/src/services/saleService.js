@@ -31,8 +31,10 @@ const createSale = async (sale, userId) => {
 
 const getAllSales = async (userId) => {
   const sale = await Sale.findAll({ where: { userId }, 
-    include: [{ model: Product, as: 'products', attributes: ['id', 'name', 'price'] }], 
-    through: { attributes: [] },
+    include: [{ model: Product,
+       as: 'products', 
+       attributes: ['id', 'name', 'price'], 
+       through: { attributes: ['quantity'] } }], 
 }); 
   return sale;
 };
