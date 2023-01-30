@@ -47,7 +47,14 @@ const getSaleById = async (id) => {
       as: 'products', 
       attributes: ['id', 'name', 'price'],
       through: { attributes: ['quantity'] },
-     }], 
+     },
+     {
+      model: User,
+      as: 'sellers',
+      attributes: ['id', 'name', 'role'],
+      through: { attributes: [] }
+     }
+    ], 
   });
   return saleById;
 };
