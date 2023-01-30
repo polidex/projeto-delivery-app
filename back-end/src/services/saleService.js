@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const { Sale, SaleProduct, Product } = require('../database/models');
+const { User, Sale, SaleProduct, Product } = require('../database/models');
 const config = require('../database/config/config');
 
 const env = process.env.NODE_ENV || 'development';
@@ -42,18 +42,18 @@ const getAllSales = async (userId) => {
 const getSaleById = async (id) => {
   const saleById = await Sale.findOne({
     where: { id }, 
-    include: [{ 
+    include: [{
+      model: User,
+      as: 'sellers',
+      attributes: ['id', 'name', 'role'],
+      // through: { attributes: ['role'] },
+     }, 
+     { 
       model: Product, 
       as: 'products', 
       attributes: ['id', 'name', 'price'],
       through: { attributes: ['quantity'] },
-     },
-     {
-      model: User,
-      as: 'sellers',
-      attributes: ['id', 'name', 'role'],
-      through: { attributes: [] }
-     }
+     },    
     ], 
   });
   return saleById;
