@@ -29,5 +29,5 @@ export const getSales = async (token) => {
       Authorization: token,
     } };
   return instance
-    .get('customer/sales', {}, config);
+    .get('customer/sales', config);
 };

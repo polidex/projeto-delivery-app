@@ -6,9 +6,10 @@ import { getSales } from '../Api/api';
 function Orders() {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    const { token } = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(localStorage.getItem('user'));
     async function fetchOrders() {
-      setOrders(await getSales(token));
+      const { data } = await getSales(user.token);
+      setOrders(data);
     }
     fetchOrders();
   }, []);
@@ -16,7 +17,7 @@ function Orders() {
   return (
     <div>
       <Menu />
-      {orders.map((order) => {
+      {orders && orders.map((order) => {
         const { id, totalPrice, saleDate, status } = order;
         return (
           <OrderCard
