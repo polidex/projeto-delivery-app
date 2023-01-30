@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../style/components/DetailsOrder.css';
 
 function DetailsOrder(props) {
-  const { removeBtn } = props;
+  const { order, orderCart } = props;
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
 
   const removeItem = (id) => {
@@ -12,7 +12,7 @@ function DetailsOrder(props) {
     setCart(updatedCart);
   };
 
-  const showItems = () => cart.map((product, index) => (
+  const showItems = (items) => items.map((product, index) => (
     <tr key={ product.id }>
       <td
         className="index"
@@ -57,8 +57,8 @@ function DetailsOrder(props) {
         </h1>
       </td>
       {
-        removeBtn
-          ? (
+        !order
+          && (
             <td className="btn">
               <button
                 type="button"
@@ -70,15 +70,14 @@ function DetailsOrder(props) {
               </button>
             </td>
           )
-          : null
       }
     </tr>
   ));
 
-  const showTotalPrice = () => {
+  const showTotalPrice = (items) => {
     let totalPrice = 0;
-    for (let index = 0; index < cart.length; index += 1) {
-      totalPrice += cart[index].qty * cart[index].price;
+    for (let index = 0; index < items.length; index += 1) {
+      totalPrice += items[index].qty * items[index].price;
     }
     localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
     return (
@@ -100,20 +99,24 @@ function DetailsOrder(props) {
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
-            { removeBtn && <th>Remover item</th> }
+            { !order && <th>Remover item</th> }
           </tr>
-          { showItems() }
+          { order ? showItems(orderCart) : showItems(cart) }
         </tbody>
       </table>
       <div className="total">
-        { showTotalPrice() }
+        { order ? showTotalPrice(orderCart) : showTotalPrice(cart)}
       </div>
     </div>
   );
 }
 
 DetailsOrder.propTypes = {
-  removeBtn: PropTypes.bool.isRequired,
+  order: PropTypes.bool.isRequired,
+  orderCart: PropTypes.oneOfType([
+    PropTypes.shape,
+    PropTypes.bool,
+  ]).isRequired,
 };
 
 export default DetailsOrder;

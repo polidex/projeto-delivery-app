@@ -6,7 +6,7 @@ function Checkout() {
   return (
     <div>
       <Menu />
-      <DetailsOrder removeBtn />
+      <DetailsOrder order={ false } orderCart={ false } />
       <AddressCard />
     </div>
   );
