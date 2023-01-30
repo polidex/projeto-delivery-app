@@ -22,3 +22,12 @@ export const submitAddress = async (
       deliveryNumber: body.deliveryNumber,
       products: body.products }, config);
 };
+
+export const getSales = async (token) => {
+  const config = {
+    headers: {
+      Authorization: token,
+    } };
+  return instance
+    .get('customer/sales', {}, config);
+};
