@@ -22,3 +22,5 @@ export const submitAddress = async (
       deliveryNumber: body.deliveryNumber,
       products: body.products }, config);
 };
+
+export const getOrderByID = async (id) => instance.get(`sales/${id}`);

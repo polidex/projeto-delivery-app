@@ -1,5 +1,14 @@
-.pedido-infos {
+.card-pedido {
+  margin: 0 10%;
+}
+
+.header-pedido {
+  border: 1px solid black;
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+}
+
+h1 {
+  font-size: medium;
 }

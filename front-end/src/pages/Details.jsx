@@ -1,66 +1,85 @@
+import moment from 'moment/moment';
+import 'moment/locale/pt-br';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { getOrderByID } from '../Api/api';
 import DetailsOrder from '../components/DetailsOrder';
 import Menu from '../components/Menu';
 import '../style/Details.css';
 
 function Details(props) {
-  const [data, setData] = useState();
-  const s = 'entregue';
-  const teste = [{
-    id: 1,
-    name: 'Skol Lata 250ml',
-    price: '2.20',
-    qty: 3,
-    urlImage: 'http://localhost:3001/images/skol_lata_350ml.jpg',
-  }];
+  const [infos, setInfos] = useState();
+  const { match } = props;
+  const { params } = match;
+  const { id } = params;
 
   useEffect(() => {
     async function fetchOrderByID() {
-      const { match } = props;
-      const { params } = match;
-      const { id } = params;
-      setData(await getOrderByID(id));
+      setInfos(await getOrderByID(id));
     }
     fetchOrderByID();
   }, []);
 
-  console.log(data);
+  const showOrderId = (orderId) => {
+    const TRES = 3;
+    switch (orderId.toString().length) {
+    case 1:
+      return `000${orderId}`;
+    case 2:
+      return `00${orderId}`;
+    case TRES:
+      return `0${orderId}`;
+    default:
+      return orderId;
+    }
+  };
 
-  return (
-    <div>
-      <Menu />
+  const infosProduct = () => (
+    <div className="card-pedido">
       <h1>Detalhe do Pedido</h1>
-      <div className="pedido-infos">
+      <div className="header-pedido">
         <h4
           data-testid="customer_order_details__element-order-details-label-order-id"
         >
-          Pedido XXXX;
+          { `Pedido ${showOrderId(infos.data.id)}` }
         </h4>
         <h4
           data-testid="customer_order_details__element-order-details-label-seller-name"
         >
-          P. Vend: Nome Completo
+          {`P. Vend: ${infos.data.sellerId}`}
         </h4>
         <h4
           data-testid="customer_order_details__element-order-details-label-order-date"
         >
-          xx/xx/xxxx
+          {
+            moment(infos.data.saleDate).format('L')
+          }
         </h4>
         <h4
           data-testid={
-            `customer_order_details__element-order-details-label-delivery-status${s}`
+            `customer_order_details__element-order-details-label-delivery-status-${id}`
           }
         >
-          Status
+          {infos.data.status}
         </h4>
         <h4
           data-testid="customer_order_details__button-delivery-check"
         >
           MARCAR COMO ENTREGUE
+          { console.log(infos.data)}
         </h4>
       </div>
-      <DetailsOrder order orderCart={ teste } />
+      <DetailsOrder
+        products={ infos.data.products }
+        totalPrice={ infos.data.totalPrice }
+      />
+    </div>
+  );
+
+  return (
+    <div>
+      <Menu />
+      { infos && infosProduct()}
     </div>
   );
 }
