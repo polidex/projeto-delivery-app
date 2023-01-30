@@ -10,8 +10,12 @@ a {
   text-decoration: none;
 }
 
-.btn-produtos {
+.active-link {
   background-color: #2fc18c;
+  color: white;
+}
+
+.btn-produtos {
   min-width: 15%;
   text-align: center;
 }
@@ -21,13 +25,12 @@ a {
 }
 
 .btn-orders {
-  margin-left: 40px;
-  min-width: 55%;
-  text-align: left;
+  min-width: 15%;
+  text-align: center;
 }
 
 .btn-orders a {
-  color: white;
+  color: black;
 }
 
 .btn-logout {
@@ -44,5 +47,10 @@ a {
   background-color: #421981;
   color: white;
   min-width: 15%;
+  text-align: center;
+}
+
+.space {
+  min-width: 40%;
   text-align: center;
 }

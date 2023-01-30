@@ -59,15 +59,17 @@ function Details(props) {
           data-testid={
             `customer_order_details__element-order-details-label-delivery-status-${id}`
           }
+          className="status"
         >
           {infos.data.status}
         </h4>
-        <h4
+        <button
+          type="button"
+          className="btn-status"
           data-testid="customer_order_details__button-delivery-check"
         >
           MARCAR COMO ENTREGUE
-          { console.log(infos.data)}
-        </h4>
+        </button>
       </div>
       <DetailsOrder
         products={ infos.data.products }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../style/Menu.css';
 
 const vasco = () => {
@@ -6,14 +6,22 @@ const vasco = () => {
 };
 
 function Menu() {
+  const history = useHistory();
+
   const getDataInStorage = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return user;
   };
 
+  const activeLink = (path) => {
+    if (history.location.pathname.includes(path)) {
+      return 'active-link';
+    }
+  };
+
   return (
     <div className="menu">
-      <div className="btn-produtos">
+      <div className={ `btn-produtos ${activeLink('products')}` }>
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"
@@ -22,7 +30,7 @@ function Menu() {
         </Link>
       </div>
 
-      <div className="btn-orders">
+      <div className={ `btn-orders ${activeLink('orders')}` }>
         <Link
           to="/orders"
           data-testid="customer_products__element-navbar-link-orders"
@@ -30,6 +38,8 @@ function Menu() {
           <h4>Meus Pedidos</h4>
         </Link>
       </div>
+
+      <div className="space" />
 
       <div className="username">
         <h4
