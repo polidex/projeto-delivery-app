@@ -24,7 +24,7 @@ function Menu() {
 
       <div className="btn-orders">
         <Link
-          to="/orders"
+          to="/customer/orders"
           data-testid="customer_products__element-navbar-link-orders"
         >
           <h4>Meus Pedidos</h4>
