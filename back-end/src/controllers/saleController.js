@@ -12,9 +12,9 @@ const createSale = async (req, res) => {
 };
 
 const getAllSales = async (req, res) => {
-  const { id } = req.params;
+  const { userId } = req;
   try {
-    const allSales = await saleService.getAllSales(id);
+    const allSales = await saleService.getAllSales(userId);
     return res.status(200).json(allSales);
   } catch (error) {
     return res.status(500).json({ message: error.message });
