@@ -41,6 +41,7 @@ const getAllSales = async (userId) => {
 
 const getSaleById = async (id) => {
   const saleById = await Sale.findOne({
+<<<<<<< HEAD
     where: { id }, 
     include: [{
       model: User,
@@ -55,6 +56,15 @@ const getSaleById = async (id) => {
       through: { attributes: ['quantity'] },
      },    
     ], 
+=======
+    where: { id },
+    include: {
+      all: true,
+      attributes: {
+        exclude: ['id', 'password'],
+      },
+    },
+>>>>>>> 5a66b941099620abaae39633c294bfba8240cf57
   });
   return saleById;
 };
