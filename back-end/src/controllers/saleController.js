@@ -33,7 +33,7 @@ const getSaleById = async (req, res) => {
 };
 
 const getAllSellers = async (req, res) => {
-  const { sellerId } = req;
+  const { sellerId } = req.params;
   try {
     const allSellers = await saleService.getAllSellers(sellerId);
     return res.status(200).json(allSellers);
