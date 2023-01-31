@@ -52,4 +52,13 @@ const getSaleById = async (id) => {
   return saleById;
 };
 
-module.exports = { createSale, getAllSales, getSaleById };
+const getAllSellers = async (sellerId) => {
+  const sellers = await Sale.findAll({ where: { sellerId }, 
+    include: [{ model: Product,
+       as: 'products', 
+       attributes: ['id', 'name', 'price'], 
+       through: { attributes: ['quantity'] } }], 
+}); 
+  return sellers;
+};
+module.exports = { createSale, getAllSales, getSaleById, getAllSellers };
