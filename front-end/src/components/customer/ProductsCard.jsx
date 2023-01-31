@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../style/components/ProductsCard.css';
+import '../../style/components/customer/ProductsCard.css';
 import { useEffect } from 'react';
 
 function ProductsCard(props) {

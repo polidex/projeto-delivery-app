@@ -1,10 +1,10 @@
-import '../style/Products.css';
+import '../../style/Products.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductsCard from '../components/ProductsCard';
-import { getProducts } from '../Api/api';
-import Menu from '../components/Menu';
-import CheckoutButton from '../components/CheckouBotton';
+import ProductsCard from '../../components/customer/ProductsCard';
+import { getProducts } from '../../Api/api';
+import Menu from '../../components/Menu';
+import CheckoutButton from '../../components/customer/CheckouBotton';
 
 function Products() {
   const [productsList, setProductsList] = useState([]);

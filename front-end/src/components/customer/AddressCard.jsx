@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { submitAddress } from '../Api/api';
-import '../style/components/AddressCard.css';
+import { submitAddress } from '../../Api/api';
+import '../../style/components/customer/AddressCard.css';
 
 function AddressCard() {
   const [addressInfos, setAddressInfos] = useState({

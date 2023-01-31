@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import '../style/components/CheckoutButton.css';
+import '../../style/components/customer/CheckoutButton.css';
 
 function CheckoutButton(props) {
   const { productsQty, productsList, cartEmpty } = props;

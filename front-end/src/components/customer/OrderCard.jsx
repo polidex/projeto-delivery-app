@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../style/components/OrderCard.css';
+import '../../style/components/customer/OrderCard.css';
 import { Link } from 'react-router-dom';
 
 function OrderCard(props) {

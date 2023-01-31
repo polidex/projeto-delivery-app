@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Menu from '../components/Menu';
-import OrderCard from '../components/OrderCard';
-import { getSales } from '../Api/api';
+import Menu from '../../components/Menu';
+import OrderCard from '../../components/customer/OrderCard';
+import { getSales } from '../../Api/api';
 
 function Orders() {
   const [orders, setOrders] = useState([]);

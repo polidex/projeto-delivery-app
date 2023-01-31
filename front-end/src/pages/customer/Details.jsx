@@ -2,10 +2,10 @@ import moment from 'moment/moment';
 import 'moment/locale/pt-br';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { getOrderByID } from '../Api/api';
-import DetailsOrder from '../components/DetailsOrder';
-import Menu from '../components/Menu';
-import '../style/Details.css';
+import { getOrderByID } from '../../Api/api';
+import DetailsOrder from '../../components/customer/DetailsOrder';
+import Menu from '../../components/Menu';
+import '../../style/Details.css';
 
 function Details(props) {
   const [infos, setInfos] = useState();

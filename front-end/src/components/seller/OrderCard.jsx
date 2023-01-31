@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import '../style/components/DeliveryCard.css';
+import '../../style/components/seller/OrderCard.css';
 import { Link } from 'react-router-dom';
 
-function DeliveryCard(props) {
+function OrderCard(props) {
   const { id, totalPrice, saleDate, status, address, number } = props;
   return (
     <div>
-      <Link to={ `/seller/orders/${id}` } className="delivery-card">
+      <Link to={ `/seller/orders/${id}` } className="order-card">
         <p data-testid={ `seller_orders__element-order-id-${id}` }>{`Pedido ${id}`}</p>
         <p
           data-testid={ `seller_orders__element-order-date-${id}` }
@@ -33,7 +33,7 @@ function DeliveryCard(props) {
   );
 }
 
-DeliveryCard.propTypes = {
+OrderCard.propTypes = {
   id: PropTypes.number.isRequired,
   saleDate: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ DeliveryCard.propTypes = {
   number: PropTypes.number.isRequired,
 };
 
-export default DeliveryCard;
+export default OrderCard;

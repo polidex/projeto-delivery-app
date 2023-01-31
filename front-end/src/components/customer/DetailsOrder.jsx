@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../style/components/DetailsOrder.css';
+import '../../style/components/customer/DetailsOrder.css';
 
 function DetailsOrder(props) {
   const { products, totalPrice } = props;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../style/components/DetailsOrder.css';
+import '../../style/components/customer/DetailsOrder.css';
 
 function DetailsOrderCart() {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
