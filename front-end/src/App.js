@@ -8,6 +8,7 @@ import Checkout from './pages/customer/Checkout';
 import Details from './pages/customer/Details';
 import DetailsSeller from './pages/seller/Details';
 import Orders from './pages/customer/Orders';
+import OrdersSeller from './pages/seller/Orders';
 
 function App() {
   const history = useHistory();
@@ -22,10 +23,11 @@ function App() {
       { /* Customer */ }
       <Route exact path="/customer/products" component={ Products } />
       <Route exact path="/customer/checkout" component={ Checkout } />
-      <Route exact path="/customer/orders/:id" component={ Details } />
       <Route exact path="/customer/orders" component={ Orders } />
+      <Route exact path="/customer/orders/:id" component={ Details } />
 
       { /* Seller */ }
+      <Route exact path="/seller/orders" component={ OrdersSeller } />
       <Route exact path="/seller/orders/:id" component={ DetailsSeller } />
     </>
   );

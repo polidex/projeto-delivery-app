@@ -24,6 +24,7 @@ export const submitAddress = async (
 };
 
 export const getOrderByID = async (id) => instance.get(`sales/${id}`);
+
 export const getSales = async (token) => {
   const config = {
     headers: {
@@ -31,4 +32,13 @@ export const getSales = async (token) => {
     } };
   return instance
     .get('customer/sales', config);
+};
+
+export const getSeller = async (token) => {
+  const config = {
+    headers: {
+      Authorization: token,
+    } };
+  return instance
+    .get('seller/orders', config);
 };

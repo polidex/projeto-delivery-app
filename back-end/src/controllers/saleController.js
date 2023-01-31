@@ -33,9 +33,9 @@ const getSaleById = async (req, res) => {
 };
 
 const getAllSellers = async (req, res) => {
-  const { sellerId } = req.params;
+  const { userId } = req;
   try {
-    const allSellers = await saleService.getAllSellers(sellerId);
+    const allSellers = await saleService.getAllSellers(userId);
     return res.status(200).json(allSellers);
   } catch (error) {
     return res.status(500).json({ message: error.message });
