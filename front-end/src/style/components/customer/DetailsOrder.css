@@ -1,0 +1,61 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+table {
+  font-size: 12px;
+  min-width: 90%;
+}
+
+td {
+  background-color: #f2fffc;
+}
+
+.index {
+  background-color: #2fc18c;
+}
+
+.qty {
+  background-color: #036b52;
+  color: white;
+}
+
+.unit {
+  background-color: #421981;
+  color: white;
+}
+
+.sub {
+  background-color: #056cf9;
+  color: white;
+}
+
+.btn {
+  background-color: #2fc18c;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+button {
+  cursor: pointer;
+  max-width: 99%;
+  text-align: center;
+}
+
+.total {
+  margin-right: 40px;
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.desc {
+  font-weight: 400;
+  margin-left: 40px;
+}

@@ -1,0 +1,30 @@
+.btn-cart {
+  background-color: #036b52;
+  border: none;
+  border-radius: 10px;
+  bottom: 4%;
+  color: white;
+  font-size: 18px;
+  max-width: 20%;
+  position: fixed;
+  right: 5%;
+}
+
+.btn-cart:disabled {
+  background-color: #828b89;
+}
+
+.btn-cart:enabled {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-left both;
+}
+
+@keyframes wipe-in-left {
+
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}

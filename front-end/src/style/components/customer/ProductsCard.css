@@ -1,0 +1,47 @@
+.card {
+  background-color: eaf1ef;
+  height: 486px;
+  stroke: solid 1px b1c2be;
+  width: 378px;
+}
+
+.price {
+  background-color: f2ffc;
+  height: 63;
+  width: 154;
+}
+
+.image {
+  height: 375px;
+  width: 375px;
+}
+
+.card-menu {
+  height: 96px;
+  width: 375px;
+}
+
+.card-title {
+  height: 30px;
+  width: 375px;
+}
+
+.btns-menu {
+  height: 51px;
+  width: 160px;
+}
+
+.btn-rm {
+  height: 24px;
+  width: 24px;
+}
+
+.int-qtt {
+  height: 24px;
+  width: 24px;
+}
+
+.btn-add {
+  height: 24px;
+  width: 24px;
+}
