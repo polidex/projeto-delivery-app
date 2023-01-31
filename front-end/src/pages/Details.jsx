@@ -18,7 +18,7 @@ function Details(props) {
       setInfos(await getOrderByID(id));
     }
     fetchOrderByID();
-  }, []);
+  }, [id]);
 
   const showOrderId = (orderId) => {
     const TRES = 3;
