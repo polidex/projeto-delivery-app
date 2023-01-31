@@ -61,4 +61,5 @@ const getAllSellers = async (sellerId) => {
 }); 
   return sellers;
 };
+
 module.exports = { createSale, getAllSales, getSaleById, getAllSellers };
