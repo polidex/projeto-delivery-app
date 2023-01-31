@@ -1,6 +1,10 @@
 import { Link, useHistory } from 'react-router-dom';
 import '../style/Menu.css';
 
+const vasco = () => {
+  localStorage.removeItem('user');
+};
+
 function OrdersMenu() {
   const history = useHistory();
 

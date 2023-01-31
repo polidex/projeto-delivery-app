@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Menu from '../../components/Menu';
+import OrdersMenu from '../../components/OrdersMenu';
 import OrderCard from '../../components/seller/OrderCard';
 import { getSeller } from '../../Api/api';
 
@@ -16,7 +16,7 @@ function Orders() {
 
   return (
     <div>
-      <Menu />
+      <OrdersMenu />
       {orders && orders.map((order) => {
         const { id, totalPrice, saleDate, status,
           deliveryAddress, deliveryNumber } = order;

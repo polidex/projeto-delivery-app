@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { getOrderByID } from '../../Api/api';
 import DetailsOrder from '../../components/seller/DetailsOrder';
-import Menu from '../../components/Menu';
+import OrdersMenu from '../../components/OrdersMenu';
 import '../../style/Details.css';
 
 function Details(props) {
@@ -90,7 +90,7 @@ function Details(props) {
 
   return (
     <div>
-      <Menu />
+      <OrdersMenu />
       { infos && infosProduct()}
     </div>
   );
