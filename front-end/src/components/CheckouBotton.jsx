@@ -5,6 +5,7 @@ import '../style/components/CheckoutButton.css';
 function CheckoutButton(props) {
   const { productsQty, productsList, cartEmpty } = props;
   const [value, setValue] = useState(0.00);
+
   useEffect(() => {
     const totalValue = productsList
       .reduce((acc, current) => Number(acc + (productsQty[current
@@ -14,14 +15,6 @@ function CheckoutButton(props) {
 
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <button
         type="button"
         data-testid="customer_products__button-cart"
@@ -38,6 +31,7 @@ function CheckoutButton(props) {
     </div>
   );
 }
+
 CheckoutButton.propTypes = {
   cartEmpty: PropTypes.bool.isRequired,
   productsQty: PropTypes.shape({
@@ -59,5 +53,7 @@ CheckoutButton.propTypes = {
     price: PropTypes.string,
     urlImage: PropTypes.string,
   })).isRequired,
+
 };
+
 export default CheckoutButton;

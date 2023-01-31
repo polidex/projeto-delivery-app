@@ -24,7 +24,6 @@ export const submitAddress = async (
 };
 
 export const getOrderByID = async (id) => instance.get(`sales/${id}`);
-
 export const getSales = async (token) => {
   const config = {
     headers: {
