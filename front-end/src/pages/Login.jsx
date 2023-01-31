@@ -5,6 +5,7 @@ import '../style/Login.css';
 
 function Login() {
   const productsLink = '/customer/products';
+  const sellerLink = '/seller/orders';
   const [loginInfos, setLoginInfos] = useState({
     email: '',
     password: '',
@@ -12,10 +13,17 @@ function Login() {
   const [isDisabledBtn, setIsDisabledBtn] = useState(true);
   const [isDisabledError, setIsDisabledError] = useState('notError');
   const history = useHistory();
+  const redirectFunc = (data) => {
+    if (data.role === 'customer') {
+      history.push(productsLink);
+    } if (data.role === 'seller') {
+      history.push(sellerLink);
+    }
+  };
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user) history.push(productsLink);
+    if (user) redirectFunc(user);
   });
 
   const handleChange = (e) => {
@@ -55,7 +63,7 @@ function Login() {
     try {
       const { data } = await loginUser(loginInfos.email, loginInfos.password);
       localStorage.setItem('user', JSON.stringify(data));
-      history.push(productsLink);
+      redirectFunc(data);
     } catch {
       errorApi();
     }
