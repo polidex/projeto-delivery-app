@@ -46,7 +46,7 @@ function Details(props) {
         <h4
           data-testid="customer_order_details__element-order-details-label-seller-name"
         >
-          {`P. Vend: ${infos.data.sellerId}`}
+          {`P. Vend: ${infos.data.sellers.name}`}
         </h4>
         <h4
           data-testid="customer_order_details__element-order-details-label-order-date"
@@ -67,6 +67,7 @@ function Details(props) {
           type="button"
           className="btn-status"
           data-testid="customer_order_details__button-delivery-check"
+          disabled
         >
           MARCAR COMO ENTREGUE
         </button>

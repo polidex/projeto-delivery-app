@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../style/components/DetailsOrder.css';
 
-function DetailsOrder() {
+function DetailsOrderCart() {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
 
   const removeItem = (id) => {
@@ -69,7 +69,7 @@ function DetailsOrder() {
 
   const showTotalPrice = () => {
     let totalPrice = 0;
-    for (let index = 0; index < items.length; index += 1) {
+    for (let index = 0; index < cart.length; index += 1) {
       totalPrice += cart[index].qty * cart[index].price;
     }
     localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
@@ -104,4 +104,4 @@ function DetailsOrder() {
   );
 }
 
-export default DetailsOrder;
+export default DetailsOrderCart;

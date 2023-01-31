@@ -21,7 +21,9 @@ function Menu() {
 
   return (
     <div className="menu">
-      <div className={ `btn-produtos ${activeLink('products')}` }>
+      <div
+        className={ `btn-produtos ${activeLink('products') || activeLink('checkout')}` }
+      >
         <Link
           to="/customer/products"
           data-testid="customer_products__element-navbar-link-products"

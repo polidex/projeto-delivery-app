@@ -16,10 +16,10 @@ function CheckoutButton(props) {
   return (
     <div>
       <button
-        disabled={ cartEmpty }
         type="button"
         data-testid="customer_products__button-cart"
         className="btn-cart"
+        disabled={ cartEmpty }
       >
         <h5 data-testid="customer_products__checkout-bottom-value">
           {

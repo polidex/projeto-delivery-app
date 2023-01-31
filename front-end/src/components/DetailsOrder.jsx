@@ -67,7 +67,11 @@ function DetailsOrder(props) {
         </tbody>
       </table>
       <div className="total">
-        <h1>{ `Total Price: ${totalPrice}` }</h1>
+        <h1
+          data-testid="customer_order_details__element-order-total-price"
+        >
+          { `Total Price: ${totalPrice.replace('.', ',')}` }
+        </h1>
       </div>
     </div>
   );

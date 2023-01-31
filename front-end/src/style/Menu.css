@@ -1,18 +1,24 @@
 .menu {
   background-color: #036b52;
   display: flex;
-
-  /* justify-content: space-between; */
   min-height: 10vh;
 }
+
 
 a {
   text-decoration: none;
 }
 
+.menu a h4 {
+  color: white;
+}
+
 .active-link {
   background-color: #2fc18c;
-  color: white;
+}
+
+.active-link a h4 {
+  color: black;
 }
 
 .btn-produtos {
