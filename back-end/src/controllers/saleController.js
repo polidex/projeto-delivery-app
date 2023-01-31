@@ -32,4 +32,14 @@ const getSaleById = async (req, res) => {
   }
 };
 
-module.exports = { createSale, getAllSales, getSaleById };
+const getAllSellers = async (req, res) => {
+  const { sellerId } = req;
+  try {
+    const allSellers = await saleService.getAllSellers(sellerId);
+    return res.status(200).json(allSellers);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { createSale, getAllSales, getSaleById, getAllSellers };
