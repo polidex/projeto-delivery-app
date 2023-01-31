@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import '../style/components/CheckoutButton.css';
 
 function CheckoutButton(props) {
   const { productsQty, productsList, cartEmpty } = props;
@@ -14,22 +15,15 @@ function CheckoutButton(props) {
 
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <button
-        disabled={ cartEmpty }
         type="button"
         data-testid="customer_products__button-cart"
+        className="btn-cart"
+        disabled={ cartEmpty }
       >
         <h5 data-testid="customer_products__checkout-bottom-value">
           {
-            String(value).replace('.', ',')
+            `Ver Carrinho: ${String(value).replace('.', ',')}`
           }
 
         </h5>
