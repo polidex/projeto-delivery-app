@@ -1,10 +1,18 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import '../style/components/DetailsOrder.css';
 
 function DetailsOrder(props) {
-  const { products, totalPrice } = props;
+  const { removeBtn } = props;
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
 
-  const showItems = () => products.map((product, index) => (
+  const removeItem = (id) => {
+    const updatedCart = cart.filter((element) => element.id !== id);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  };
+
+  const showItems = () => cart.map((product, index) => (
     <tr key={ product.id }>
       <td
         className="index"
@@ -29,7 +37,7 @@ function DetailsOrder(props) {
           data-testid={ `customer_checkout__element-order-table-quantity-${index}` }
           className="text-center"
         >
-          {product.SaleProduct.quantity}
+          {product.qty}
         </h1>
       </td>
       <td className="unit">
@@ -45,12 +53,42 @@ function DetailsOrder(props) {
           data-testid={ `customer_checkout__element-order-table-sub-total-${index}` }
           className="text-center"
         >
-          {(Number(product.price) * product.SaleProduct.quantity)
-            .toFixed(2).replace('.', ',')}
+          {(Number(product.price) * product.qty).toFixed(2).replace('.', ',')}
         </h1>
       </td>
+      {
+        removeBtn
+          ? (
+            <td className="btn">
+              <button
+                type="button"
+                data-testid={ `customer_checkout__element-order-table-remove-${index}` }
+                onClick={ () => removeItem(product.id) }
+                className="btn"
+              >
+                <p>Remover</p>
+              </button>
+            </td>
+          )
+          : null
+      }
     </tr>
   ));
+
+  const showTotalPrice = () => {
+    let totalPrice = 0;
+    for (let index = 0; index < cart.length; index += 1) {
+      totalPrice += cart[index].qty * cart[index].price;
+    }
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    return (
+      <h1
+        data-testid="customer_checkout__element-order-total-price"
+      >
+        {`Total Price: ${totalPrice.toFixed(2).replace('.', ',')}`}
+      </h1>
+    );
+  };
 
   return (
     <div className="details">
@@ -62,24 +100,20 @@ function DetailsOrder(props) {
             <th>Quantidade</th>
             <th>Valor Unitário</th>
             <th>Sub-total</th>
+            { removeBtn && <th>Remover item</th> }
           </tr>
           { showItems() }
         </tbody>
       </table>
       <div className="total">
-        <h1
-          data-testid="customer_order_details__element-order-total-price"
-        >
-          { `Total Price: ${totalPrice.replace('.', ',')}` }
-        </h1>
+        { showTotalPrice() }
       </div>
     </div>
   );
 }
 
 DetailsOrder.propTypes = {
-  products: PropTypes.arrayOf(Object).isRequired,
-  totalPrice: PropTypes.string.isRequired,
+  removeBtn: PropTypes.bool.isRequired,
 };
 
 export default DetailsOrder;

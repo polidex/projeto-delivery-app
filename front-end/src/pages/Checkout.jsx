@@ -1,4 +1,4 @@
-import DetailsOrderCart from '../components/DetailsOrderCart';
+import DetailsOrder from '../components/DetailsOrder';
 import Menu from '../components/Menu';
 import AddressCard from '../components/AddressCard';
 
@@ -6,7 +6,7 @@ function Checkout() {
   return (
     <div>
       <Menu />
-      <DetailsOrderCart />
+      <DetailsOrder removeBtn />
       <AddressCard />
     </div>
   );

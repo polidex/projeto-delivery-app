@@ -47,30 +47,31 @@ function Products() {
   return (
     <main>
       <Menu />
-      <div className="products-cards">
-        {productsList.map((product) => {
-          const { name, id, price, urlImage } = product;
-          return (
-            <ProductsCard
-              key={ name }
-              id={ id }
-              name={ name }
-              price={ price }
-              products={ productsQty }
-              setProducts={ setProductsQty }
-              urlImage={ urlImage }
-            />
-          );
-        })}
+      <h1>/Products</h1>
 
-        <Link to="/customer/checkout">
-          <CheckoutButton
-            cartEmpty={ cartEmpty }
-            productsList={ productsList }
-            productsQty={ productsQty }
+      {productsList.map((product) => {
+        const { name, id, price, urlImage } = product;
+        return (
+          <ProductsCard
+            key={ name }
+            id={ id }
+            name={ name }
+            price={ price }
+            products={ productsQty }
+            setProducts={ setProductsQty }
+            urlImage={ urlImage }
           />
-        </Link>
-      </div>
+        );
+      })}
+
+      <Link to="/customer/checkout">
+        <CheckoutButton
+          cartEmpty={ cartEmpty }
+          productsList={ productsList }
+          productsQty={ productsQty }
+        />
+      </Link>
+
     </main>
   );
 }
