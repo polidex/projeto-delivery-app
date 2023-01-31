@@ -3,11 +3,11 @@ import { Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Products from './pages/Products';
-import Checkout from './pages/Checkout';
-import Details from './pages/Details';
+import Products from './pages/customer/Products';
+import Checkout from './pages/customer/Checkout';
+import Details from './pages/customer/Details';
 import DetailsSeller from './pages/seller/Details';
-import Orders from './pages/Orders';
+import Orders from './pages/customer/Orders';
 
 function App() {
   const history = useHistory();
