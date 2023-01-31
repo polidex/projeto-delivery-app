@@ -23,6 +23,8 @@ export const submitAddress = async (
       products: body.products }, config);
 };
 
+export const getOrderByID = async (id) => instance.get(`sales/${id}`);
+
 export const getSales = async (token) => {
   const config = {
     headers: {
