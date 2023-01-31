@@ -1,4 +1,3 @@
-
 const saleService = require('../services/saleService');
 
 const createSale = async (req, res) => {
