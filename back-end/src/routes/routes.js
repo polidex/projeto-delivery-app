@@ -16,6 +16,6 @@ route.get('/products', productController.getAllProducts);
 route.post('/orders', tokenValidation, saleController.createSale);
 route.get('/customer/sales', tokenValidation, saleController.getAllSales);
 route.get('/sales/:id', saleController.getSaleById);
-route.get('/sellers/:sellerId', saleController.getAllSellers);
+route.get('/seller/orders', tokenValidation, saleController.getAllSellers);
 
 module.exports = route;
