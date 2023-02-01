@@ -1,47 +1,78 @@
 .card {
-  background-color: eaf1ef;
-  height: 486px;
-  stroke: solid 1px b1c2be;
-  width: 378px;
+  background-color: white;
+  width: auto;
 }
 
 .price {
-  background-color: f2ffc;
+  background-color: #036b52;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  font-weight: 800;
   height: 63;
-  width: 154;
+  margin: 20px 0;
+  padding: 10px;
+  text-align: center;
+  width: 40%;
 }
 
 .image {
+  display: flex;
   height: 375px;
-  width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 
 .card-menu {
-  height: 96px;
-  width: 375px;
+  background-color: #eaf1ef;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  text-align: center;
 }
 
 .card-title {
+  color: #023b2e;
   height: 30px;
   width: 375px;
 }
 
-.btns-menu {
-  height: 51px;
-  width: 160px;
-}
-
 .btn-rm {
-  height: 24px;
-  width: 24px;
+  background-color: #036b52;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  color: white;
+  font-size: 24px;
+  padding: 6px;
+  width: 38px;
 }
 
 .int-qtt {
-  height: 24px;
-  width: 24px;
+  border: 2px solid black;
+  color: gray;
+  max-height: 60px;
+  text-align: center;
+  width: 42px;
 }
 
-.btn-add {
-  height: 24px;
-  width: 24px;
+.int-qtt::-webkit-outer-spin-button, .int-qtt::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
+
+
+.btn-add {
+  background-color: #036b52;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: white;
+  font-size: 24px;
+  padding: 6px;
+  width: 38px;
+}
+
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+}
+

@@ -41,7 +41,7 @@ function ProductsCard(props) {
         className="price"
         data-testid={ `customer_products__element-card-price-${id}` }
       >
-        {`${price.replace('.', ',')}`}
+        {`R$ ${price.replace('.', ',')}`}
       </p>
       <img
         className="image"
@@ -56,34 +56,36 @@ function ProductsCard(props) {
         >
           {name}
         </p>
-        <button
-          id="btn-rm"
-          className="btn-rm"
-          onClick={ (event) => productsHandle(event.target) }
-          name={ id }
-          type="button"
-          data-testid={ `customer_products__button-card-rm-item-${id}` }
-        >
-          -
-        </button>
-        <input
-          className="int-qtt"
-          type="number"
-          name={ id }
-          onChange={ (e) => inputProductsHandle(e.target) }
-          data-testid={ `customer_products__input-card-quantity-${id}` }
-          value={ products[id] }
-        />
-        <button
-          id="btn-add"
-          onClick={ (event) => productsHandle(event.target) }
-          name={ id }
-          className="btn-add"
-          type="button"
-          data-testid={ `customer_products__button-card-add-item-${id}` }
-        >
-          +
-        </button>
+        <div className="card-buttons">
+          <button
+            id="btn-rm"
+            className="btn-rm"
+            onClick={ (event) => productsHandle(event.target) }
+            name={ id }
+            type="button"
+            data-testid={ `customer_products__button-card-rm-item-${id}` }
+          >
+            -
+          </button>
+          <input
+            className="int-qtt"
+            type="number"
+            name={ id }
+            onChange={ (e) => inputProductsHandle(e.target) }
+            data-testid={ `customer_products__input-card-quantity-${id}` }
+            value={ products[id] }
+          />
+          <button
+            id="btn-add"
+            onClick={ (event) => productsHandle(event.target) }
+            name={ id }
+            className="btn-add"
+            type="button"
+            data-testid={ `customer_products__button-card-add-item-${id}` }
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
 
