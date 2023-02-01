@@ -47,10 +47,10 @@ const updateStatus = async (req, res) => {
   const { status } = req.body;
   try {
     const update = await saleService.updateStatus(id, status);
-    return res.status(200).json(update)
+    return res.status(200).json(update);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
-}
+};
 
 module.exports = { createSale, getAllSales, getSaleById, getAllSellers, updateStatus };

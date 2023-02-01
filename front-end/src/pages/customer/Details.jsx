@@ -2,7 +2,7 @@ import moment from 'moment/moment';
 import 'moment/locale/pt-br';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { getOrderByID } from '../../Api/api';
+import { getOrderByID, updateStatus } from '../../Api/api';
 import DetailsOrder from '../../components/customer/DetailsOrder';
 import Menu from '../../components/Menu';
 import '../../style/Details.css';
@@ -32,6 +32,10 @@ function Details(props) {
     default:
       return orderId;
     }
+  };
+
+  const receiveOrder = (orderId) => {
+    updateStatus(orderId, 'Entregue');
   };
 
   const infosProduct = () => (
@@ -67,7 +71,8 @@ function Details(props) {
           type="button"
           className="btn-status"
           data-testid="customer_order_details__button-delivery-check"
-          disabled
+          onClick={ () => receiveOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Em Trânsito' }
         >
           MARCAR COMO ENTREGUE
         </button>

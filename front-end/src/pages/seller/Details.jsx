@@ -2,7 +2,7 @@ import moment from 'moment/moment';
 import 'moment/locale/pt-br';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { getOrderByID } from '../../Api/api';
+import { getOrderByID, updateStatus } from '../../Api/api';
 import DetailsOrder from '../../components/seller/DetailsOrder';
 import OrdersMenu from '../../components/OrdersMenu';
 import '../../style/Details.css';
@@ -35,11 +35,11 @@ function Details(props) {
   };
 
   const prepareOrder = (orderId) => {
-    console.log(`prepare order ${orderId}`);
+    updateStatus(orderId, 'Preparando');
   };
 
   const dispatchOrder = (orderId) => {
-    console.log(`pedido ${orderId} saiu pra entrega`);
+    updateStatus(orderId, 'Em Trânsito');
   };
 
   const infosProduct = () => (
@@ -69,6 +69,7 @@ function Details(props) {
           className="btn-status"
           data-testid="seller_order_details__button-preparing-check"
           onClick={ () => prepareOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Pendente' }
         >
           PREPARAR PEDIDO
         </button>
@@ -77,6 +78,7 @@ function Details(props) {
           className="btn-status"
           data-testid="seller_order_details__button-dispatch-check"
           onClick={ () => dispatchOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Preparando' }
         >
           SAIU PARA ENTREGA
         </button>
