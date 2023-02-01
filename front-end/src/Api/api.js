@@ -42,3 +42,5 @@ export const getSeller = async (token) => {
   return instance
     .get('seller/orders', config);
 };
+
+export const updateStatus = async (id, status) => instance.put(`sales/${id}`, { status });

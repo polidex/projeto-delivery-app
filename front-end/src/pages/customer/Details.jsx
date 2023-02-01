@@ -2,7 +2,7 @@ import moment from 'moment/moment';
 import 'moment/locale/pt-br';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { getOrderByID } from '../../Api/api';
+import { getOrderByID, updateStatus } from '../../Api/api';
 import DetailsOrder from '../../components/customer/DetailsOrder';
 import Menu from '../../components/Menu';
 import '../../style/Details.css';
@@ -35,7 +35,7 @@ function Details(props) {
   };
 
   const receiveOrder = (orderId) => {
-    console.log(`Entregue ${orderId}`);
+    updateStatus(orderId, 'Entregue');
   };
 
   const infosProduct = () => (
