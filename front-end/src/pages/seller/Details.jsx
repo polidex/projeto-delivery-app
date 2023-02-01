@@ -35,11 +35,11 @@ function Details(props) {
   };
 
   const prepareOrder = (orderId) => {
-    console.log(`prepare order ${orderId}`);
+    console.log(`Preparando ${orderId}`);
   };
 
   const dispatchOrder = (orderId) => {
-    console.log(`pedido ${orderId} saiu pra entrega`);
+    console.log(`Em Trânsito ${orderId}`);
   };
 
   const infosProduct = () => (
@@ -69,6 +69,7 @@ function Details(props) {
           className="btn-status"
           data-testid="seller_order_details__button-preparing-check"
           onClick={ () => prepareOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Pendente' }
         >
           PREPARAR PEDIDO
         </button>
@@ -77,6 +78,7 @@ function Details(props) {
           className="btn-status"
           data-testid="seller_order_details__button-dispatch-check"
           onClick={ () => dispatchOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Preparando' }
         >
           SAIU PARA ENTREGA
         </button>

@@ -34,6 +34,10 @@ function Details(props) {
     }
   };
 
+  const receiveOrder = (orderId) => {
+    console.log(`Entregue ${orderId}`);
+  };
+
   const infosProduct = () => (
     <div className="card-pedido">
       <h1>Detalhe do Pedido</h1>
@@ -67,7 +71,8 @@ function Details(props) {
           type="button"
           className="btn-status"
           data-testid="customer_order_details__button-delivery-check"
-          disabled
+          onClick={ () => receiveOrder(infos.data.id) }
+          disabled={ infos.data.status !== 'Em Trânsito' }
         >
           MARCAR COMO ENTREGUE
         </button>
