@@ -18,4 +18,7 @@ route.get('/customer/sales', tokenValidation, saleController.getAllSales);
 route.get('/sales/:id', saleController.getSaleById);
 route.get('/seller/orders', tokenValidation, saleController.getAllSellers);
 route.put('/sales/:id', saleController.updateStatus);
+route.post('/admin/register', tokenValidation, userController.adminRegisterUser);
+route.delete('/user/:id', tokenValidation, userController.removeUser);
+route.get('/users', userController.findAllUsers);
 module.exports = route;

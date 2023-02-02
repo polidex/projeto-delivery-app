@@ -30,7 +30,7 @@ const userRegister = async (user) => {
       name: user.name,
       email: user.email,
       password: user.password,
-      role: 'customer',
+      role: user.role || 'customer',
     });
     const token = generateToken(user.email);
     return {
@@ -44,4 +44,15 @@ const userRegister = async (user) => {
   }
 };
 
-module.exports = { insertLogin, userRegister, UserExists, findUserByEmail };
+const findAllUsers = async () => User.findAll();
+
+const removeUser = async (id) => User.destroy({ where: { id } });
+
+module.exports = { 
+  insertLogin,
+  userRegister,
+  UserExists,
+  findUserByEmail,
+  removeUser,
+  findAllUsers, 
+};
