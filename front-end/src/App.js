@@ -34,6 +34,7 @@ function App() {
       { /* ADM */ }
       <Route exact path="/admin/manage" component={ Adm } />
     </>
+
   );
 }
 
