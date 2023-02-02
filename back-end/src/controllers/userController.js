@@ -51,7 +51,7 @@ const adminRegisterUser = async (req, res) => {
   }
   const userData = req.body;
   userData.password = crypto.createHash('md5').update(userData.password).digest('hex');
-  const userExists = await service.UserExists(userData.name, userData.email);
+  const userExists = await service.adminUserExists(userData.name, userData.email, userData.role);
   if (userExists) {
     return res.sendStatus(409);
   }

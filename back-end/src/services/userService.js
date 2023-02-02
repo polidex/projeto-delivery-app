@@ -24,6 +24,15 @@ const UserExists = async (name, email) => {
   } return false;
 };
 
+const adminUserExists = async (name, email, role) => {
+  const userEmail = await User.findOne({ where: { email } });
+  const userName = await User.findOne({ where: { name } });
+  const userRole = await User.findOne({ where: { role } });
+  if (userEmail || userName || userRole) {
+    return true;
+  } return false;
+};
+
 const userRegister = async (user) => {
   try {
     const newUser = await User.create({
@@ -49,6 +58,7 @@ const findAllUsers = async () => User.findAll();
 const removeUser = async (id) => User.destroy({ where: { id } });
 
 module.exports = { 
+  adminUserExists,
   insertLogin,
   userRegister,
   UserExists,
