@@ -19,6 +19,7 @@ module.exports = async (req, res, next) => {
     }
 
     req.userId = user.id;
+    req.role = user.role;
 
     next();
   } catch (err) {

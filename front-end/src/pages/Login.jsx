@@ -6,6 +6,7 @@ import '../style/Login.css';
 function Login() {
   const productsLink = '/customer/products';
   const sellerLink = '/seller/orders';
+  const adminLink = '/admin/manage';
   const [loginInfos, setLoginInfos] = useState({
     email: '',
     password: '',
@@ -14,7 +15,9 @@ function Login() {
   const [isDisabledError, setIsDisabledError] = useState('notError');
   const history = useHistory();
   const redirectFunc = (data) => {
-    if (data.role === 'customer') {
+    if (data.role === 'administrator') {
+      history.push(adminLink);
+    } if (data.role === 'customer') {
       history.push(productsLink);
     } if (data.role === 'seller') {
       history.push(sellerLink);
