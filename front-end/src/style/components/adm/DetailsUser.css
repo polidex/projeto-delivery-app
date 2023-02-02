@@ -1,0 +1,17 @@
+table {
+  font-size: 12px;
+  min-width: 90%;
+}
+
+.index {
+  text-align: center;
+  width: 60px;
+}
+
+.name-label {
+  margin-left: 16px;
+}
+
+.email-label {
+  text-align: center;
+}
