@@ -34,8 +34,12 @@ function Details(props) {
     }
   };
 
-  const receiveOrder = (orderId) => {
-    updateStatus(orderId, 'Entregue');
+  const receiveOrder = async () => {
+    await updateStatus(infos.data.id, 'Entregue');
+    async function fetchOrderByID() {
+      setInfos(await getOrderByID(id));
+    }
+    fetchOrderByID();
   };
 
   const infosProduct = () => (
@@ -71,7 +75,7 @@ function Details(props) {
           type="button"
           className="btn-status"
           data-testid="customer_order_details__button-delivery-check"
-          onClick={ () => receiveOrder(infos.data.id) }
+          onClick={ receiveOrder }
           disabled={ infos.data.status !== 'Em Trânsito' }
         >
           MARCAR COMO ENTREGUE

@@ -34,12 +34,20 @@ function Details(props) {
     }
   };
 
-  const prepareOrder = (orderId) => {
-    updateStatus(orderId, 'Preparando');
+  const prepareOrder = async (orderId) => {
+    await updateStatus(orderId, 'Preparando');
+    async function fetchOrderByID() {
+      setInfos(await getOrderByID(id));
+    }
+    fetchOrderByID();
   };
 
-  const dispatchOrder = (orderId) => {
-    updateStatus(orderId, 'Em Trânsito');
+  const dispatchOrder = async (orderId) => {
+    await updateStatus(orderId, 'Em Trânsito');
+    async function fetchOrderByID() {
+      setInfos(await getOrderByID(id));
+    }
+    fetchOrderByID();
   };
 
   const infosProduct = () => (
