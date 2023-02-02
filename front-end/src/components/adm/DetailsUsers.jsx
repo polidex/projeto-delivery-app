@@ -1,35 +1,16 @@
-import { useEffect, useState } from 'react';
-import { deleteUser, getUsers } from '../../Api/api';
+import PropTypes from 'prop-types';
+import { deleteUser } from '../../Api/api';
 import '../../style/components/adm/DetailsUser.css';
 
-function DetailsUsers() {
-  const [users, setUsers] = useState();
-
-  useEffect(() => {
-    async function fetchUsers() {
-      setUsers(await getUsers());
-    }
-    fetchUsers();
-  }, [users]);
+function DetailsUsers(props) {
+  const { users } = props;
 
   const removeUser = async (id) => {
     const { token } = JSON.parse(localStorage.getItem('user'));
     await deleteUser(id, token);
-    console.log(`BANIDO ${id} 😎`);
-    async function fetchUsers() {
-      setUsers(await getUsers());
-    }
-    fetchUsers();
   };
 
-  const usersMock = [{
-    id: 1,
-    name: 'name',
-    email: 'email@email.com',
-    role: 'adm',
-  }];
-
-  const showUsers = () => usersMock.map((user, index) => (
+  const showUsers = () => users.map((user, index) => (
     <tr key={ user.id }>
       <td
         className="index"
@@ -87,11 +68,15 @@ function DetailsUsers() {
             <th>Tipo</th>
             <th>Excluir</th>
           </tr>
-          { showUsers() }
+          { users && showUsers() }
         </tbody>
       </table>
     </div>
   );
 }
+
+DetailsUsers.propTypes = {
+  users: PropTypes.arrayOf(Object).isRequired,
+};
 
 export default DetailsUsers;

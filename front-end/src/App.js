@@ -32,7 +32,7 @@ function App() {
       <Route exact path="/seller/orders/:id" component={ DetailsSeller } />
 
       { /* ADM */ }
-      <Route exact path="/adm" component={ Adm } />
+      <Route exact path="/admin/manage" component={ Adm } />
     </>
   );
 }

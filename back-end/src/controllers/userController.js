@@ -26,7 +26,7 @@ const removeUser = async (req, res) => {
   if (req.role !== 'administrator') {
     return res.status(401).json({ message: 'Unauthorized' });
   }
-  const id = req.params;
+  const { id } = req.params;
   try {
     await service.removeUser(id);
     res.status(204).json({ message: 'removed' });
@@ -37,7 +37,7 @@ const removeUser = async (req, res) => {
 
 const findAllUsers = async (req, res) => {
   try {
-    const users = service.findAllUsers();
+    const users = await service.findAllUsers();
     res.status(200).json(users);
   } catch (error) {
     res.status(500).json({ message: error.message });
