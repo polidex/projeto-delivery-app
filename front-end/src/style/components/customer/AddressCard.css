@@ -1,21 +1,39 @@
-.checkout-addresscard {
-  height: 331px;
-  width: 1640px;
+.form-box {
+  height: 200px;
+  width: 1600px;
 }
 
 h2 {
-  height: 20px;
-  width: 723px;
+  width: 370px;
 }
 
-.form-box {
-  height: 283px;
-  width: 1638px;
+.label-select-seller {
+  height: 50px;
+  width: 180px;
 }
 
 .select-seller {
-  height: 112px;
-  width: 371px;
+  height: 24px;
+  width: 180px;
+}
+
+.address-box {
+  height: 50px;
+  width: 600px;
+}
+
+.input-address {
+  height: 18px;
+  width: 592px;
+}
+
+.number-box {
+  width: 90px;
+}
+
+.input-number {
+  height: 18px;
+  width: 80px;
 }
 
 .submit-btn {

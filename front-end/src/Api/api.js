@@ -44,3 +44,18 @@ export const getSeller = async (token) => {
 };
 
 export const updateStatus = async (id, status) => instance.put(`sales/${id}`, { status });
+
+export const admResgisterUser = async (
+  userData,
+) => {
+  const config = {
+    headers: {
+      Authorization: userData.token,
+    } };
+  return instance
+    .post('/admin/register', {
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
+      role: userData.role }, config);
+};

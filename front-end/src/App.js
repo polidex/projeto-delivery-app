@@ -9,6 +9,7 @@ import Details from './pages/customer/Details';
 import DetailsSeller from './pages/seller/Details';
 import Orders from './pages/customer/Orders';
 import OrdersSeller from './pages/seller/Orders';
+import Adm from './pages/adm/Adm';
 
 function App() {
   const history = useHistory();
@@ -29,7 +30,12 @@ function App() {
       { /* Seller */ }
       <Route exact path="/seller/orders" component={ OrdersSeller } />
       <Route exact path="/seller/orders/:id" component={ DetailsSeller } />
+
+      { /* ADM */ }
+      <Route exact path="/admin/manage" component={ Adm } />
     </>
+
+
   );
 }
 
