@@ -44,3 +44,14 @@ export const getSeller = async (token) => {
 };
 
 export const updateStatus = async (id, status) => instance.put(`sales/${id}`, { status });
+
+export const getUsers = async () => instance.get('users');
+
+export const deleteUser = async (id, token) => {
+  const config = {
+    headers: {
+      Authorization: token,
+    } };
+
+  return instance.delete(`user/${id}`, config);
+};
