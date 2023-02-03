@@ -24,11 +24,10 @@ const UserExists = async (name, email) => {
   } return false;
 };
 
-const adminUserExists = async (name, email, role) => {
+const adminUserExists = async (name, email) => {
   const userEmail = await User.findOne({ where: { email } });
   const userName = await User.findOne({ where: { name } });
-  const userRole = await User.findOne({ where: { role } });
-  if (userEmail || userName || userRole) {
+  if (userEmail || userName) {
     return true;
   } return false;
 };
