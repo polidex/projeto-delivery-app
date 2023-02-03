@@ -1,5 +1,5 @@
 import { Link, useHistory } from 'react-router-dom';
-import '../style/Menu.css';
+import '../style/OrdersMenu.css';
 
 const vasco = () => {
   localStorage.removeItem('user');
@@ -20,7 +20,7 @@ function OrdersMenu() {
   };
 
   return (
-    <div className="menu">
+    <div className="menu-orders">
       <div className={ `btn-orders ${activeLink('orders')}` }>
         <Link
           to="/seller/orders"
@@ -30,7 +30,7 @@ function OrdersMenu() {
         </Link>
       </div>
 
-      <div className="space" />
+      <div className="space-orders" />
 
       <div className="username">
         <h4

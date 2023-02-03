@@ -20,7 +20,7 @@ function Menu() {
   };
 
   return (
-    <div className="menu">
+    <div className="menu-customer">
       <div
         className={ `btn-produtos ${activeLink('products') || activeLink('checkout')}` }
       >

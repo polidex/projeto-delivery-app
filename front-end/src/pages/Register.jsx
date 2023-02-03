@@ -81,50 +81,53 @@ function Register() {
   };
 
   return (
-    <div className="form-cadastro">
-      <h1>Cadastro</h1>
-      <div className="form-inputs">
-        <h4>Nome:</h4>
-        <input
-          type="text"
-          className="nome"
-          placeholder="nome"
-          value={ registerInfos.nome }
-          data-testid="common_register__input-name"
-          onChange={ handleChange }
-        />
-        <h4>Email:</h4>
-        <input
-          type="text"
-          className="email"
-          placeholder="email"
-          value={ registerInfos.email }
-          data-testid="common_register__input-email"
-          onChange={ handleChange }
-        />
-        <h4>Senha:</h4>
-        <input
-          type="password"
-          className="password"
-          placeholder="password"
-          value={ registerInfos.password }
-          data-testid="common_register__input-password"
-          onChange={ handleChange }
-        />
-      </div>
-      <div className="form-buttons">
-        <button
-          type="button"
-          data-testid="common_register__button-register"
-          disabled={ isDisabledBtn }
-          onClick={ submitApi }
-        >
-          Cadastrar
-        </button>
+    <div className="register">
+      <div className="form-cadastro">
+        <h1 className="label-cadastro">Cadastro</h1>
+        <div className="form-inputs">
+          <h4 className="form-label">Nome:</h4>
+          <input
+            type="text"
+            className="nome"
+            placeholder="Seu nome"
+            value={ registerInfos.nome }
+            data-testid="common_register__input-name"
+            onChange={ handleChange }
+          />
+          <h4 className="form-label">Email:</h4>
+          <input
+            type="text"
+            className="email"
+            placeholder="seu-email@site.com"
+            value={ registerInfos.email }
+            data-testid="common_register__input-email"
+            onChange={ handleChange }
+          />
+          <h4 className="form-label">Senha:</h4>
+          <input
+            type="password"
+            className="password"
+            placeholder="**********"
+            value={ registerInfos.password }
+            data-testid="common_register__input-password"
+            onChange={ handleChange }
+          />
+        </div>
+        <div className="form-buttons">
+          <button
+            type="button"
+            data-testid="common_register__button-register"
+            className="btn-cadastrar"
+            disabled={ isDisabledBtn }
+            onClick={ submitApi }
+          >
+            CADASTRAR
+          </button>
+        </div>
       </div>
       <p
         data-testid="common_register__element-invalid_register"
-        className={ isDisabledError }
+        className={ `invalid-login ${isDisabledError}` }
       >
         Invalid Data
       </p>
