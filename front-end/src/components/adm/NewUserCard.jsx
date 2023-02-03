@@ -13,6 +13,7 @@ function NewUserCard() {
 
   const handleChange = ({ target }) => {
     const { id, value } = target;
+    console.log(value);
     setNewUserInfos((prevState) => ({ ...prevState, [id]: value }));
 
     const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -128,12 +129,12 @@ function NewUserCard() {
             name="role"
             className="select-role"
             id="role"
-            // value={  }
-            onClick={ handleChange }
+            value={ newUserInfos.role }
+            onChange={ handleChange }
           >
-            <option value="customer">Customer</option>
-            <option value="seller">Seller</option>
-            <option value="administrator">Administrator</option>
+            <option value="customer">customer</option>
+            <option value="seller">seller</option>
+            <option value="administrator">administrator</option>
           </select>
         </label>
       </div>

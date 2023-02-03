@@ -56,7 +56,7 @@ const adminRegisterUser = async (req, res) => {
     return res.sendStatus(409);
   }
   try {
-    const user = service.userRegister(userData);
+    const user = await service.userRegister(userData);
     return res.status(201).json(user);
   } catch (error) {
     return res.status(500).json({ message: error.message });
