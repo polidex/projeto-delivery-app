@@ -9,6 +9,7 @@ function NewUserCard() {
     role: 'customer',
   });
   const [isDisabledBtn, setIsDisabledBtn] = useState(true);
+  const [isDisabledError, setIsDisabledError] = useState('notError');
 
   const handleChange = ({ target }) => {
     const { id, value } = target;
@@ -55,6 +56,10 @@ function NewUserCard() {
     }
   };
 
+  const errorApi = async () => {
+    setIsDisabledError('showError');
+  };
+
   const submit = async () => {
     console.log('Iguinho lindo');
     try {
@@ -69,7 +74,7 @@ function NewUserCard() {
       const APIResponse = await admResgisterUser(body);
       return APIResponse.data;
     } catch (error) {
-      console.log(error);
+      errorApi();
     }
   };
 
@@ -141,6 +146,12 @@ function NewUserCard() {
       >
         CADASTRAR
       </button>
+      <p
+        data-testid="admin_manage__element-invalid-register"
+        className={ isDisabledError }
+      >
+        User already registered
+      </p>
     </div>
   );
 }
