@@ -73,24 +73,23 @@ function Login() {
   };
 
   return (
-    <main>
+    <div className="login">
       <div className="form-login">
-        <h1>Login</h1>
         <div className="form-inputs">
-          <h4>Email:</h4>
+          <h4 className="form-label">Login</h4>
           <input
             type="email"
             className="email"
-            placeholder="Email"
+            placeholder="email@trybeer.com.br"
             value={ loginInfos.email }
             data-testid="common_login__input-email"
             onChange={ handleChange }
           />
-          <h4>Senha:</h4>
+          <h4 className="form-label">Senha</h4>
           <input
             type="password"
             className="password"
-            placeholder="Password"
+            placeholder="**********"
             value={ loginInfos.password }
             data-testid="common_login__input-password"
             onChange={ handleChange }
@@ -100,44 +99,29 @@ function Login() {
           <button
             type="button"
             data-testid="common_login__button-login"
+            className="btn-login"
             disabled={ isDisabledBtn }
             onClick={ submitApi }
           >
-            Login
+            LOGIN
           </button>
           <button
             type="button"
             data-testid="common_login__button-register"
+            className="btn-register"
             onClick={ () => history.push('/register') }
           >
-            Cadastrar
-          </button>
-          <button
-            type="button"
-            data-testid="common_login__button-login"
-            onClick={ () => {
-              localStorage.setItem('user', JSON.stringify({
-                name: 'Super Dev',
-                email: 'superdev@email.com',
-                role: 'customer',
-                token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-                eyJkYXRhIjoic3VwZXJkZXZAZW1haWwuY29tIiwiaWF0IjoxNjc0NjgxNDI1LCJleHAiO
-                jE2NzUyODYyMjV9.nh3NTBYNrRg3C2moAq613bQYpNWkxLD3rtlz-pdmq14`,
-              }));
-              history.push(productsLink);
-            } }
-          >
-            ADM Liberou 😎
+            Ainda não tenho conta
           </button>
         </div>
-        <p
-          data-testid="common_login__element-invalid-email"
-          className={ isDisabledError }
-        >
-          User not found
-        </p>
       </div>
-    </main>
+      <p
+        data-testid="common_login__element-invalid-email"
+        className={ `invalid-login ${isDisabledError}` }
+      >
+        User not found
+      </p>
+    </div>
   );
 }
 
