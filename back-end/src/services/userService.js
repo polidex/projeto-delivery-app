@@ -24,13 +24,13 @@ const UserExists = async (name, email) => {
   } return false;
 };
 
-const adminUserExists = async (name, email) => {
-  const userEmail = await User.findOne({ where: { email } });
-  const userName = await User.findOne({ where: { name } });
-  if (userEmail || userName) {
-    return true;
-  } return false;
-};
+// const adminUserExists = async (name, email) => {
+//   const userEmail = await User.findOne({ where: { email } });
+//   const userName = await User.findOne({ where: { name } });
+//   if (userEmail || userName) {
+//     return true;
+//   } return false;
+// };
 
 const userRegister = async (user) => {
   try {
@@ -57,7 +57,6 @@ const findAllUsers = async () => User.findAll();
 const removeUser = async (id) => User.destroy({ where: { id } });
 
 module.exports = { 
-  adminUserExists,
   insertLogin,
   userRegister,
   UserExists,
