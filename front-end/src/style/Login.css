@@ -1,25 +1,55 @@
-.form-login {
+.login {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
-h4 {
-  margin-bottom: -1px;
-  margin-left: 6px;
+.form-login {
+  background-color: #e5e5e5;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 19px 38px , rgba(0, 0, 0, 0.22) 0 15px 12px;
+  margin-bottom: 20px;
+  padding: 30px;
 }
 
-.form-buttons {
-  display: flex;
-  flex-direction: column;
+.form-label {
+  font-weight: 400;
+  margin-bottom: 8px;
+  margin-left: 10px;
+}
+
+.email, .password, .nome {
+  height: 40px;
+  width: 260px;
+}
+
+.btn-login, .btn-register, .btn-cadastrar {
+  border-radius: 6px;
+  font-size: 16px;
+  height: 40px;
   margin-top: 10px;
+  width: 100%;
 }
 
-button {
-  margin: 2px;
-  width: 110%;
+.btn-login, .btn-cadastrar {
+  background-color: #036b52;
+  border: none;
+  color: white;
+}
+
+.btn-login:disabled, .btn-cadastrar:disabled {
+  background-color: gray;
+  border: none;
+  color: white;
+  pointer-events: none;
+}
+
+.btn-register {
+  background-color: #e5e5e5;
+  border: 2px solid #036b52;
+  color: #036b52;
 }
 
 .showError {
@@ -28,4 +58,8 @@ button {
 
 .notError {
   display: none;
+}
+
+.invalid-login {
+  color: red;
 }
